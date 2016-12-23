@@ -5,7 +5,7 @@
         {% endif %}
         <h1 class="post-title" itemprop="name">{{ page.title }}</h1>
         <p itemprop="description" class="subtitle">{{ page.description }}</p>
-        <div class="tags">
+        <div class="post-tags">
             {% for tag in page.tags %}
                 <a href="{{ site.baseurl }}/tags/#{{tag | slugify }}">{{ tag }}</a>
             {% endfor %}
