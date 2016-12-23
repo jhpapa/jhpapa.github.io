@@ -5,6 +5,11 @@
         {% endif %}
         <h1 class="post-title" itemprop="name">{{ page.title }}</h1>
         <p itemprop="description" class="subtitle">{{ page.description }}</p>
+        <div class="tags">
+            {% for tag in page.tags %}
+                <a href="{{ site.baseurl }}/tags/#{{tag | slugify }}">{{ tag }}</a>
+            {% endfor %}
+        </div>
     </div>
      <a class="down" data-scroll href="#scroll"><svg class="icon icon-angle-down"><use xlink:href="#icon-angle-down"></use></svg></a>
      {% include menu-search.html %}
