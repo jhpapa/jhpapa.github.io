@@ -1,18 +1,18 @@
 # Site settings
-title: test
-description: A blog about lorem ipsum dolor sit amet
+title: 지식 기록하는 블로그
+description:
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://sihong12.github.io" 
+url: "https://sihong12.github.io"
 
 # User settings
-username: Sihong Park 
-user_description: Web Developer 
-user_title: Web Developer 
-email: pozt1234@gamil.com 
+username: Sihong Park
+user_description: Web Developer
+user_title: Web Developer
+email: pozt1234@gamil.com
 #twitter_username: lorem_ipsum
-github_username: Sihong12 
+github_username: Sihong12
 #gplus_username:  lorem_ipsum
-disqus_username: pozt1234 
+disqus_username: pozt1234
 
 # Build settings
 markdown: kramdown
@@ -31,9 +31,9 @@ compress_html:
 # For external links add external: true
 links:
   - title: Posts
-    url: /Posts
-  - title: 
-    url: /series
+    url: /posts
+  - title: Categories
+    url: /categories
   - title: Tags
     url: /tags
   - title: About Me
