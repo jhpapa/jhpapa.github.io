@@ -15,12 +15,13 @@ layout: default
                             {{ post.date | date: "%B %Y" }}
                         </span>
                         <span>
-                          <a href="{{ post.url | prepend: site.baseurl }}#disqus_thread" data-disqus-identifier="{{post.url}}">Comments</a>
+
                         </span>
                     </time>
                 </a>
                 <div class="content">
                     <a href="{{ post.url | prepend: site.baseurl }}"><h2 class="post-title" itemprop="name">{{ post.title }}</h2></a>
+                    <a href="{{ post.url | prepend: site.baseurl }}#disqus_thread" data-disqus-identifier="{{post.url}}"></a>
                     <p class="description">
                         {{ post.content | strip_html | truncatewords:40 }}
                     </p>
