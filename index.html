@@ -14,13 +14,15 @@ layout: default
                         <span class="month-year">
                             {{ post.date | date: "%B %Y" }}
                         </span>
+                        <span>
+                          <a href="{{ post.url | prepend: site.baseurl }}#disqus_thread"></a>
+                        </span>
                     </time>
                 </a>
                 <div class="content">
                     <a href="{{ post.url | prepend: site.baseurl }}"><h2 class="post-title" itemprop="name">{{ post.title }}</h2></a>
                     <p class="description">
                         {{ post.content | strip_html | truncatewords:40 }}
-                        <a href="{{ post.url | prepend: site.baseurl }}" class="link">Read more about {{post.title}}</a>
                     </p>
 
                     <div class="tags">
@@ -32,3 +34,16 @@ layout: default
         </article>
     {% endfor %}
 </main>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = '{{site.disqus_username}}';
+    // var disqus_developer = 1; // Comment out when the site is live
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
