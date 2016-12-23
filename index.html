@@ -21,7 +21,7 @@ layout: default
                 </a>
                 <div class="content">
                     <a href="{{ post.url | prepend: site.baseurl }}"><h2 class="post-title" itemprop="name">{{ post.title }}</h2></a>
-                    <a href="{{ post.url | prepend: site.baseurl }}#disqus_thread" data-disqus-identifier="{{post.url}}"></a>
+                    <a href="{{ post.url | prepend: site.baseurl }}index.html#disqus_thread" data-disqus-identifier="{{post.url}}"></a>
                     <p class="description">
                         {{ post.content | strip_html | truncatewords:40 }}
                     </p>
@@ -35,3 +35,14 @@ layout: default
         </article>
     {% endfor %}
 </main>
+<script type="text/javascript">
+    var disqus_shortname = '{{site.disqus_username}}';
+
+    (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.id = "dsq-count-scr";
+      s.type = 'text/javascript';
+      s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s);
+    }());
+</script>
