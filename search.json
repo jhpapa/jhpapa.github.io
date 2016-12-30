@@ -4,11 +4,11 @@
   {% for post in site.posts %}
     {
       "title"    : "{{ post.title | escape }}",
-      "content"  : "{{ post.content | strip_html | strip_newlines }}",
       "category" : "{{ post.categories }}",
       "tags"     : "{{ post.tags | array_to_sentence_string }}",
       "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "date"     : "{{ post.date | date_to_string}}"
+      "date"     : "{{ post.date | date_to_string}}",
+      "content"  : "{{ post.content | strip_html | strip_newlines }}"
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]
