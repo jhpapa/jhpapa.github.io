@@ -963,7 +963,7 @@ window.Zepto = Zepto, void 0 === window.$ && (window.$ = Zepto),
                         if (j.status >= 200 && j.status < 300 || 304 == j.status || 0 == j.status && "file:" == E) {
                             p = p || l(i.mimeType || j.getResponseHeader("content-type")), e = j.responseText;
                             try {
-                                "script" == p ? (1, eval)(e) : "xml" == p ? e = j.responseXML : "json" == p && (e = S.test(e) ? null : console.log(e))
+                                "script" == p ? (1, eval)(e) : "xml" == p ? e = j.responseXML : "json" == p && (e = S.test(e) ? null : t.parseJSON(e))
                             } catch (r) {
                                 n = r
                             }
