@@ -16,11 +16,17 @@
   <h2>MENU</h2>
   <ul>
     {% for link in site.links %}
-    {% if link.external %}
-      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-    {% else %}
-      <li><a href="{{ site.url }}{{ link.url }}">{{ link.title }}</a></li>
-    {% endif %}
+      {% if link.external %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {% else %}
+        {% if link.title != categories %}
+          <li><a href="{{ site.url }}{{ link.url }}">{{ link.title }}</a></li>
+        {% else %}
+          {% for category in site.categories %}
+            <li><a href="{{ site.url }}{{ link.url }}{{ category[0] }}">{{ category[0] }}</a></li>
+          {% endfor %}
+        {% endif %}
+      {% endif %}
     {% endfor %}
     <li><a class="feed" href="{{ site.url }}/feed.xml" title="Atom/RSS feed">Feed</a></li>
   </ul>
