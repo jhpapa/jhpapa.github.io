@@ -98,5 +98,5 @@ $ node --version
 
 
 ### 참고문서
-* https://okdevtv.com/mib/nodejs
-* http://www.nodebeginner.org/index-kr.html#how-to-not-do-it
+* [https://okdevtv.com/mib/nodejs](https://okdevtv.com/mib/nodejs)
+* [http://www.nodebeginner.org/index-kr.html#how-to-not-do-it](http://www.nodebeginner.org/index-kr.html#how-to-not-do-it)
