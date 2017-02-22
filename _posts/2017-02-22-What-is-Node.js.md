@@ -17,6 +17,7 @@ Non-block I/O와 싱글 스레드 이벤트 루프를 이용하여 높은 처리
 Node.js의 [공식 홈페이지](https://nodejs.org/ko/)의 내용에 따르면
 > Node.js®는 Chrome V8 JavaScript 엔진으로 빌드된 JavaScript 런타임입니다. Node.js는 이벤트 기반, 논 블로킹 I/O 모델을 사용해 가볍고 효율적입니다. Node.js의 패키지 생태계인 npm은 세계에서 가장 큰 오픈 소스 라이브러리 생태계이기도 합니다.
 
+<br/>
 ## 장점
 1. 개발하기가 쉽다.
 2. 비동기 I/O 처리(Non-blocking)
@@ -24,6 +25,7 @@ Node.js의 [공식 홈페이지](https://nodejs.org/ko/)의 내용에 따르면
 3. 싱글 스레드 / 뛰어난 확장성
  - 이벤트 루프로 인해 서버가 멈추지 않고 반응하도록 해준다.
  - Node.js는 한 개의 스레드만 사용하지만, Apache 같은 웹서버보다 많은 요청을 처리할 수 있다.
+
 
 ## 단점
 1. No Silver Bullet
@@ -37,11 +39,13 @@ Node.js의 [공식 홈페이지](https://nodejs.org/ko/)의 내용에 따르면
  - 싱글스레드라서 코어가 많아도 하나의 코어로만 작업을 하기 때문에 CPU 최적화를 할 수 없다.
 5. V8 엔진은 GC와 같은 형태로 메모리 관리를 하기 때문에 GC가 일어나면 CPU 사용률이 순간적으로 증가해 서버가 멈출 수 있다.
 
+
 단점들이 존재하지만 아주 많은 모듈을 보유한 npm을 이용할 수 있고, 빠르게 개발할 수 있다는 장점때문에 사용할 만한 가치가 있으며, 많은 사람들이 이용하고 있다.
 
 --------------------------------
 
 # 설치 방법
+
 
 ### Windows
 1. [공식 홈페이지](https://nodejs.org/ko/)에서 설치 파일을 다운로드.
@@ -49,13 +53,14 @@ Node.js의 [공식 홈페이지](https://nodejs.org/ko/)의 내용에 따르면
 3. cmd창을 열어서 node --version 커맨드 입력.
 4. Node.js의 버전이 뜬다면 설치 완료.
 
+
 ### Linux
-$ wget https://nodejs.org/dist/v6.9.5/node-v6.9.5-linux-x64.tar.xz
-$ tar xvf node-v6.9.5-linux-x64.tar.xz
+$ wget https://nodejs.org/dist/v6.9.5/node-v6.9.5-linux-x64.tar.xz<br/>
+$ tar xvf node-v6.9.5-linux-x64.tar.xz<br/>
 $ cd node-v6.9.5-linux-x64/bin 경로를 ./bash_profile에 path 추가
- - .bash_profile은 사용자 계정에서 환경 설정하는 파일이다.
- - 해당 파일은 자신의 홈디렉토리에 존재한다.
- - path를 설정하면 어디서든 node.js의 명령어 사용 가능.
+  - .bash_profile은 사용자 계정에서 환경 설정하는 파일이다.
+  - 해당 파일은 자신의 홈디렉토리에 존재한다.
+  - path를 설정하면 어디서든 node.js의 명령어 사용 가능.<br/>
 $ node --version
  - 버전이 뜬다면 설치 완료.
 
