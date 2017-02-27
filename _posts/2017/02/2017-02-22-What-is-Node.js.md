@@ -93,6 +93,9 @@ $ node --version
  > npm update 모듈명 : 모듈을 최신버전으로 업데이트<br/>
  > npm uninstall 모듈명 : 모듈 제거
 
+package.json
+모듈의 메타 정보를 가지고 있는 파일.
+모듈에 대한 정보를 기록.
 
 
 
