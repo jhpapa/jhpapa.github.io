@@ -84,7 +84,7 @@ express.js의 scafold 코드(샘플코드 및 구조) 생성시켜준다.<br/>
      2. $ npm start
      3. $ node ./bin/www
 
-![express 실행화면]({{ site.url }}/asset/post_image/express_index.png) {}
+[express 실행화면]({{ site.url }}/assets/post_image/{{ page.date | date: "%Y" }}/{{ page.date | date: "%m" }}/express_index.png) 
 >    브라우저에 localhost:3000 입력하게 되면 express가 실행되는 것을 확인할 수 있다.
 
 
