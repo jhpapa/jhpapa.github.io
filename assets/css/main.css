@@ -546,11 +546,11 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
   color: #fff
 }
 
-body.search-overlay {
+div.search-overlay, body.search-overlay {
   overflow: hidden;
 }
 
-body.search-overlay:after {
+div.search-overlay:after {
   position: absolute;
   top: 0;
   left: 0;
@@ -563,7 +563,7 @@ body.search-overlay:after {
 }
 
 @media only screen and (max-width:37.5rem) {
-  body.search-overlay:after {
+  div.search-overlay:after {
     background-color: #0562dc
   }
 }
