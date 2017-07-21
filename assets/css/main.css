@@ -989,7 +989,7 @@ html, body {
   display: block
 }
 
-.post-content p, .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content ul, .post-content ol, .post-content .tags, .post-content iframe {
+.post-content p, .post-content ul, .post-content ol, .post-content .tags, .post-content iframe {
   *zoom: 1;
   width: auto;
   max-width: 50rem;
@@ -1000,7 +1000,27 @@ html, body {
   padding-left: 0;
   padding-right: 0;
   padding: 0 1.25rem;
-  margin: 0 auto 1.875rem;
+  margin: 0 auto 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.125rem;
+  line-height: 2;
+  letter-spacing: .01rem;
+}
+
+.post-content h1, .post-content h2, .post-content h3, .post-content h4 {
+  *zoom: 1;
+  width: auto;
+  max-width: 50rem;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+  padding: 0 1.25rem;
+  margin: 0 auto 0.7rem;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-style: normal;
@@ -1020,7 +1040,7 @@ html, body {
 
 @media only screen and (min-width:37.5rem) {
   .post-content p, .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content ul, .post-content ol, .post-content .tags, .post-content iframe {
-    font-size: 1.25rem
+    font-size: 1.20rem
   }
 }
 
@@ -1029,7 +1049,8 @@ html, body {
 }
 
 .post-content p code, .post-content li code {
-  color: #3085f4
+  color: #3085f4;
+  background-color: #f2f3f7;
 }
 
 .post-content a {
@@ -1115,7 +1136,7 @@ html, body {
   padding-right: 0;
   border-left: .313rem solid #0562dc;
   padding: 0 1.875rem;
-  margin: 3.125rem auto;
+  margin: 2.7rem auto;
 }
 
 .post-content blockquote:before, .post-content blockquote:after {
@@ -1208,7 +1229,7 @@ html, body {
 }
 
 table {
-  margin: 3.125rem auto;
+  margin: 3rem auto;
 }
 
 @media only screen and (max-width:37.5rem) {
@@ -1219,7 +1240,7 @@ table {
 
 table th, table td {
   border: .125rem solid #ccc;
-  padding: .313rem
+  padding: .483rem
 }
 
 .tag-title {
