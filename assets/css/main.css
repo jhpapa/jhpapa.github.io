@@ -319,13 +319,22 @@ a, aside, .overlay, body {
   transition: all .25s ease
 }
 
-a.slideButton, .dosearch {
+a.slideButton {
   position: absolute;
   display: block;
   width: 40px;
   height: 40px;
   top: 10px;
-  z-index: 31
+  z-index: 32
+}
+
+.dosearch {
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 40px;
+  top: 10px;
+  z-index: 30
 }
 
 .slideButton {
@@ -440,7 +449,7 @@ a.slideButton.slide {
   left: 0;
   pointer-events: none;
   background: transparent;
-  z-index: 30;
+  z-index: 31;
 }
 
 .overlay.slide {
