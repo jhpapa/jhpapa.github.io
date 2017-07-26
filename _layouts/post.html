@@ -2,6 +2,16 @@
 <html lang="pt-br">
     {% include head.html %}
     <body>
+        <!-- Fixed navigation -->
+        <div id='post-navigation' class='post-navigation' style='display: none;'>
+          <div class='post-navigation-warp'>
+            <span class='post-navigation-title'>{{ page.title }}</span>
+          </div>
+          <a class="scroll scroll-up" href="javscript:void(0)"><i class="icon fa fa-angle-up"></i></a>
+          <a class="scroll scroll-down" href="javscript:void(0)"><i class="icon fa fa-angle-down"></i></a>
+          <!-- <a class="scroll" data-scroll href="#scroll"><svg class="icon icon-angle-down"><use xlink:href="#icon-angle-down"></use></svg></a> -->
+        </div>
+
         {% include svg-icons.html %}
         {% include header-post.html %}
         <section class="post" itemscope itemtype="http://schema.org/BlogPosting">
@@ -16,4 +26,39 @@
             {% include footer.html %}
         </section>
     </body>
+
+    <script type="text/javascript" src="/assets/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        showFixedNavigation();
+        // bindEvent();
+      });
+
+      // Dynamic navigation
+      $(window).scroll(function(){
+        showFixedNavigation();
+      });
+
+      function showFixedNavigation() {
+        if($(window).scrollTop() >= $('.header-post').outerHeight()
+            && !$('#slide').hasClass('slide')) {
+          // $('#post-navigation').attr('style', 'position: fixed;').show();
+          $('#post-navigation').show().addClass('post-navigation');
+          $('#slide, #search').attr('style', 'position: fixed;')
+          $('#slide #open, #searchIcon').removeClass('icon-menu').addClass('icon-menu-nav');
+        } else {
+          // $('#post-navigation').removeAttr('style').hide();
+          $('#post-navigation').removeClass('post-navigation').hide();
+          $('#slide, #search').removeAttr('style');
+          $('#slide #open, #searchIcon').removeClass('icon-menu-nav').addClass('icon-menu');
+        }
+      }
+
+      function bindEvent() {
+            $('.scrollTop').click(function() {
+              // $("html, body").animate({ scrollTop: 5675 }, 600);
+              return false;
+            });
+      }
+    </script>
 </html>

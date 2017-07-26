@@ -1217,15 +1217,15 @@ window.Zepto = Zepto, void 0 === window.$ && (window.$ = Zepto),
   }(Zepto),
   function(t, e, n) {
     t("a#slide").click(function() {
-      t("#sidebar,a#slide,#fade").addClass("slide"), t("#open").hide(), t("#search").hide(), t("#close").show()
+      t("#sidebar,a#slide,#fade").addClass("slide"), t("#open").hide(), t("#search").hide(), t("#close").show(), t("#post-navigation").hide()
     }), t("#fade").click(function() {
-      t("#sidebar,a#slide,#fade").removeClass("slide"), t("#open").show(), t("#search").show(), t("#close").hide()
+      t("#sidebar,a#slide,#fade").removeClass("slide"), t("#open").show(), t("#search").show(), t("#close").hide(), t("#post-navigation").show(), showFixedNavigation()
     });
     var r = {
       close: t(".icon-remove-sign"),
       searchform: t(".search-form"),
       canvas: t("#search-overlay"),
-      body: t("body"),
+      body: t("html"),
       dothis: t(".dosearch")
     };
     r.dothis.on("click", function() {

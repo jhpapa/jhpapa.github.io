@@ -24,7 +24,7 @@
           <li><a href="{{ site.url }}{{ link.url }}">{{ link.title }}</a></li>
         {% else %}
           {% for category in site.categories %}
-            <li><a href="{{ site.url }}{{ link.url }}{{ category[0] }}">{{ category[0] }}</a></li>
+            <li><a href="{{ site.url }}{{ link.url }}{{ category[0] }}">{{ category.title }}</a></li>
           {% endfor %}
         {% endif %}
       {% endif %}
@@ -34,12 +34,5 @@
 </nav>
 </aside>
 <a id="search" class="dosearch">
-    <svg class="icon-menu icon-search"><use xlink:href="#icon-search"></use></svg>
+    <svg id="searchIcon" class="icon-menu icon-search"><use xlink:href="#icon-search"></use></svg>
 </a>
-
-<script type="text/javascript" src="/assets/js/jquery-3.1.1.slim.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-});
-
-</script>
