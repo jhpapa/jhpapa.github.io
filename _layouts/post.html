@@ -40,7 +40,7 @@
 
       function showFixedNavigation() {
         if($(window).scrollTop() >= $('.header-post').outerHeight()
-            && !$('#slide').hasClass('slide')) {
+            && !$('#slide').hasClass('slide') && !$('.search-wrapper').hasClass('active')) {
           // $('#post-navigation').attr('style', 'position: fixed;').show();
           $('#post-navigation').show().addClass('post-navigation');
           $('#slide, #search').attr('style', 'position: fixed;')

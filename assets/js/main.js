@@ -1229,7 +1229,7 @@ window.Zepto = Zepto, void 0 === window.$ && (window.$ = Zepto),
       dothis: t(".dosearch")
     };
     r.dothis.on("click", function() {
-      t(".search-wrapper").toggleClass("active"), r.searchform.toggleClass("active"), r.searchform.find("input").focus(), r.canvas.show(), r.canvas.toggleClass("search-overlay"), r.body.toggleClass("search-overlay"), t(".search-field").simpleJekyllSearch()
+      t(".search-wrapper").toggleClass("active"), r.searchform.toggleClass("active"), r.searchform.find("input").focus(), r.canvas.show(), r.canvas.toggleClass("search-overlay"), r.body.toggleClass("search-overlay"), t(".search-field").simpleJekyllSearch(), t("#post-navigation").hide()
     }), /*r.close.on("click", function() {
       t(".search-wrapper").toggleClass("active"), r.searchform.toggleClass("active"), r.canvas.removeClass("search-overlay")
     })*/r.close.on("click", function() {
@@ -1237,7 +1237,7 @@ window.Zepto = Zepto, void 0 === window.$ && (window.$ = Zepto),
       t('#searchText').focus();
     }), r.canvas.on("click", function() {
       if(r.canvas.hasClass("search-overlay")) {
-        t(".search-wrapper").toggleClass("active"), r.searchform.toggleClass("active"), r.canvas.hide(), r.canvas.removeClass("search-overlay"), r.body.removeClass("search-overlay")
+        t(".search-wrapper").toggleClass("active"), r.searchform.toggleClass("active"), r.canvas.hide(), r.canvas.removeClass("search-overlay"), r.body.removeClass("search-overlay"), t("#post-navigation").show(), showFixedNavigation()
         deleteSearch();
       }
     }), smoothScroll.init({
