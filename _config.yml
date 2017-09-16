@@ -34,9 +34,20 @@ links:
     url: /
   - title: Categories
     url: /categories
+  - title: Programming
+    url: /programming
+    sublink: true
+  - title: Web
+    url: /web
+    sublink: true
+  - title: TIL
+    url: /til
+    sublink: true
   - title: Tags
     url: /tags
-  - title: About Me
+  - title: Archive
+    url: /archive
+  - title: About me
     url: /about
 
 # exclude my node related stuff

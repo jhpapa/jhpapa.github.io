@@ -25,37 +25,30 @@
             {% include footer.html %}
         </section>
     </body>
-
     <script type="text/javascript" src="/assets/js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
-      $(document).ready(function() {
-        showFixedNavigation();
-        // bindEvent();
-      });
+      var isFixed = false;
+      var scrollTimer;
+      var scrollTriggerHeight = $('.header-post').outerHeight();
 
       // Dynamic navigation
       $(window).scroll(function(){
-        showFixedNavigation();
-      });
-
-      function showFixedNavigation() {
-        if($(window).scrollTop() >= $('.header-post').outerHeight()
-            && !$('#slide').hasClass('slide') && !$('.search-wrapper').hasClass('active')) {
-          $('#post-navigation').show().addClass('post-navigation');
-          $('#slide, #search').attr('style', 'position: fixed;')
-          $('#slide #open, #searchIcon').removeClass('icon-menu').addClass('icon-menu-nav');
-        } else if(!$('#slide').hasClass('slide')) {
-          $('#post-navigation').removeClass('post-navigation').hide();
-          $('#slide, #search').removeAttr('style');
-          $('#slide #open, #searchIcon').removeClass('icon-menu-nav').addClass('icon-menu');
+        if (!scrollTimer) {
+          scrollTimer = setTimeout(function() {
+            if($(window).scrollTop() >= scrollTriggerHeight
+                && !$('#slide').hasClass('slide') && !$('.search-wrapper').hasClass('active')) {
+              $('#post-navigation').show().addClass('post-navigation');
+              $('#slide, #search').attr('style', 'position: fixed;')
+              $('#slide #open, #searchIcon').removeClass('icon-menu').addClass('icon-menu-nav');
+            } else if(!$('#slide').hasClass('slide')) {
+              $('#post-navigation').removeClass('post-navigation').hide();
+              $('#slide, #search').removeAttr('style');
+              $('#slide #open, #searchIcon').removeClass('icon-menu-nav').addClass('icon-menu');
+            }
+            scrollTimer = null;
+          }, 300);
         }
-      }
-
-      function bindEvent() {
-            $('.scrollTop').click(function() {
-              // $("html, body").animate({ scrollTop: 5675 }, 600);
-              return false;
-            });
-      }
+      });
     </script>
+
 </html>

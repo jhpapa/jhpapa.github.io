@@ -7,7 +7,6 @@ tags:
 - GET
 - POST
 categories:
-- Programming
 - Web
 
 ---
