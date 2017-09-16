@@ -564,6 +564,7 @@ var Zepto = function() {
       }) : this
     },
     scrollTop: function(t) {
+      console.log(t)
       if (this.length) {
         var e = "scrollTop" in this[0];
         return t === w ? e ? this[0].scrollTop : this[0].pageYOffset : this.each(e ? function() {
@@ -1217,9 +1218,10 @@ window.Zepto = Zepto, void 0 === window.$ && (window.$ = Zepto),
   }(Zepto),
   function(t, e, n) {
     t("a#slide").click(function() {
-      t("#sidebar,a#slide,#fade").addClass("slide"), t("#open").hide(), t("#search").hide(), t("#close").show(), t("#post-navigation").hide()
+      t("#sidebar,a#slide,#fade").addClass("slide"), t("#open").hide(), t("#search").hide(), t("#close").show(), hideFixedNavigation()
     }), t("#fade").click(function() {
-      t("#sidebar,a#slide,#fade").removeClass("slide"), t("#open").show(), t("#search").show(), t("#close").hide(), t("#post-navigation").show(), showFixedNavigation()
+      t("#sidebar,a#slide,#fade").removeClass("slide"), t("#open").show(), t("#search").show(), t("#close").hide()
+      if($(window).scrollTop() >= $('.header-post').outerHeight()) { t("#post-navigation").show() }
     });
     var r = {
       close: t(".icon-remove-sign"),
@@ -1229,7 +1231,7 @@ window.Zepto = Zepto, void 0 === window.$ && (window.$ = Zepto),
       dothis: t(".dosearch")
     };
     r.dothis.on("click", function() {
-      t(".search-wrapper").toggleClass("active"), r.searchform.toggleClass("active"), r.searchform.find("input").focus(), r.canvas.show(), r.canvas.toggleClass("search-overlay"), r.body.toggleClass("search-overlay"), t(".search-field").simpleJekyllSearch(), t("#post-navigation").hide()
+      t(".search-wrapper").toggleClass("active"), r.searchform.toggleClass("active"), r.searchform.find("input").focus(), r.canvas.show(), r.canvas.toggleClass("search-overlay"), r.body.toggleClass("search-overlay"), t(".search-field").simpleJekyllSearch(), hideFixedNavigation()
     }), /*r.close.on("click", function() {
       t(".search-wrapper").toggleClass("active"), r.searchform.toggleClass("active"), r.canvas.removeClass("search-overlay")
     })*/r.close.on("click", function() {
@@ -1237,7 +1239,7 @@ window.Zepto = Zepto, void 0 === window.$ && (window.$ = Zepto),
       t('#searchText').focus();
     }), r.canvas.on("click", function() {
       if(r.canvas.hasClass("search-overlay")) {
-        t(".search-wrapper").toggleClass("active"), r.searchform.toggleClass("active"), r.canvas.hide(), r.canvas.removeClass("search-overlay"), r.body.removeClass("search-overlay"), t("#post-navigation").show(), showFixedNavigation()
+        t(".search-wrapper").toggleClass("active"), r.searchform.toggleClass("active"), r.canvas.hide(), r.canvas.removeClass("search-overlay"), r.body.removeClass("search-overlay"), t("#post-navigation").show()
         deleteSearch();
       }
     }), smoothScroll.init({
@@ -1247,5 +1249,11 @@ window.Zepto = Zepto, void 0 === window.$ && (window.$ = Zepto),
     function deleteSearch() {
       t('#searchText').val("");
       t('.search-list').empty();
+    }
+
+    function hideFixedNavigation() {
+        $('#post-navigation').removeClass('post-navigation').hide();
+        $('#slide, #search').removeAttr('style');
+        $('#slide #open, #searchIcon').removeClass('icon-menu-nav').addClass('icon-menu');
     }
   }(Zepto, window);

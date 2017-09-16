@@ -425,7 +425,18 @@ aside nav li a {
 
 aside nav li a:hover {
   color: #191918;
-  background: #fff
+  background: #fff;
+}
+
+.category-section {
+  text-indent: 20px;
+  padding: 0.6rem 1.25rem 0.6rem 1.25rem;
+  font-size: 15px;
+}
+
+.menu-active {
+  color: #191918;
+  background: #fff;
 }
 
 aside nav .feed {
@@ -698,7 +709,7 @@ div.search-overlay:after {
 .img-profile {
   position: relative;
   width: 83%;
-  left: 1.2rem;
+  left: 1.16rem;
   border-radius: 5%;
 }
 
@@ -1663,4 +1674,27 @@ footer a:hover {
   fill: #fff;
   -webkit-animation: pulse 1.3s infinite;
   animation: pulse 1.3s infinite;
+}
+
+.archive-date {
+  width: 4.7rem;
+  display: inline-block;
+}
+.archive-last-border {
+  border-bottom: 1.7px solid #f2f2f2;
+}
+
+.archive-tags {
+  vertical-align: top;
+  margin: 0 0.2rem 0.5rem 0.7rem;
+  display: inline-block;
+}
+.archive-tag {
+  font-size: .007rem;
+  display: inline;
+  border: 0.5px solid #0562dc;
+  border-radius: .313rem;
+  padding: .20rem .425rem;;
+  margin-bottom: .5rem;
+  text-decoration: none;;
 }
