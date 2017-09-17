@@ -10,8 +10,6 @@ description: ""
 {% assign page_title = page.title | capitalize %}
 {% if page_title == category[0] %}
     {% assign isEmpty = false %}
-{% for category in site.categories %}
-  {% if category[0] == page.title %}
     {% assign pages_list = category[1] %}
     {% for post in pages_list %}
       <article role="article" class="post-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
