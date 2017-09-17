@@ -23,7 +23,7 @@
       {% if link.external %}
         <li><a href="{{ link.url }}">{{ link.title }}</a></li>
       {% else %}
-        {% if link.title != categories %}
+        {% if link.title | capitalize != categories %}
           {% if link.sublink %} <!-- category -->
             <li><a class="{% if page.url == link.url %}menu-active{% endif %} category-section" href="{{ site.url }}{{ link.url }}">
                 <!-- Count of post -->

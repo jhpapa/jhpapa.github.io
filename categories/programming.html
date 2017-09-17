@@ -5,9 +5,11 @@ permalink: /programming
 image: '/assets/img/series.png'
 description: ""
 ---
-
+{% assign isEmpty = true %}
 {% for category in site.categories %}
-  {% if category[0] == page.title %}
+{% assign page_title = page.title | capitalize %}
+{% if page_title == category[0] %}
+    {% assign isEmpty = false %}
     {% assign pages_list = category[1] %}
     {% for post in pages_list %}
       <article role="article" class="post-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
@@ -42,7 +44,6 @@ description: ""
     {% endfor %}
     {% assign pages_list = nil %}
     {% assign group = nil %}
-  <!-- </ul> -->
   {% endif %}
 {% endfor %}
 {% if isEmpty %}<span class="tag-title" style="text-align:center; padding-top:40px;">등록된 글이 없습니다 :(</span>{% endif %}

@@ -1,13 +1,13 @@
 ---
 layout: section
-title: "Today I Learned"
+title: "TIL"
 permalink: /til
 image: '/assets/img/series.png'
-description: "하루 동안 배우거나 공부한 내용을 정리"
+description: "Today I Learned : 하루 정리"
 ---
 {% assign isEmpty = true %}
 {% for category in site.categories %}
-  {% if category[0] == page.title %}
+{% if page.title == category[0] %}
     {% assign isEmpty = false %}
     {% assign pages_list = category[1] %}
     {% for post in pages_list %}
