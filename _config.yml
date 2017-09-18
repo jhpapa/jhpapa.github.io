@@ -17,7 +17,7 @@ disqus_username: https-sihong12-github-io
 # Build settings
 markdown: kramdown
 highlighter: rouge
-permalink: /:title/
+permalink: /:year/:month/:day/:title/
 
 
 # html minify
