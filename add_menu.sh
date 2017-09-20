@@ -7,7 +7,7 @@ if [[ -z $1 ]]; then
 fi
 
 
-echo "=====" $1 "add start ====="
+# echo "=====" $1 "add start ====="
 # add menu to config
 #sed '/lastmenu/i\
 #     - title: '"$1"' \
@@ -15,10 +15,10 @@ echo "=====" $1 "add start ====="
 #       sublink: true  \
 #' _config.yml > _temp_config.yml
 
-echo "add menu config"
+# echo "add menu config"
 
 # change config file
-rm _config.yml | mv _temp_config.yml _config.yml
+#rm _config.yml | mv _temp_config.yml _config.yml
 
 # copy template and change menu title, link
 cp temp/add_menu.html categories/"$1".html
