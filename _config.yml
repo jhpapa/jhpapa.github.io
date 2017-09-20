@@ -5,10 +5,10 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://sihong12.github.io"
 
 # User settings
-username: Sihong Park
+username: Sihong Park :)
 user_description: Web Developer
 user_title: Web Developer
-email: pozt1234@gamil.com
+email: pozt1234@gmail.com
 #twitter_username: lorem_ipsum
 github_username: Sihong12
 #gplus_username:  lorem_ipsum
@@ -42,6 +42,9 @@ links:
     sublink: true
   - title: TIL
     url: /til
+    sublink: true
+  - title: 알고리즘
+    url: /algorithm
     sublink: true
   - title: Tags
     url: /tags
