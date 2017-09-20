@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "Today I Learned"
+title: "부동소수점 표현 문제"
 date: "2017-09-17 23:50"
 categories:
 - TIL
@@ -10,6 +10,7 @@ tags:
 - 부동소수점
 - Numeric
 - Double
+- Java
 ---
 
 # 부동소수점 표현 문제
@@ -22,11 +23,13 @@ PostgreSQL에서는 정확한 0.61로 표현이 되었으나, Java에서만 해�
 
 PostgreSQL의 doc에서도 해당 내용을 확인할 수 있다.
 
-Name | Storage Size | Description | Range
---|---|---|--
-double | precision |	8 bytes	variable-precision, inexact	| 15 decimal digits precision
-decimal |	variable  | 	user-specified precision, exact  | up to 131072 digits before the decimal point; up to 16383 digits after the
-numeric	| variable  | user-specified precision, exact  |   up to 131072 digits before the decimal point; up to 16383 digits after the decimal point
+
+
+Name    | Storage Size | Description                        | Range
+--------|--------------|------------------------------------|-----------------------------------------------------------------------------------------
+double precision    | 8 bytes	| variable-precision, inexact | 15 decimal digits precision
+decimal | variable     | user-specified precision, exact    | up to 131072 digits before the decimal point ; up to 16383 digits after the
+numeric | variable     | user-specified precision, exact    | up to 131072 digits before the decimal point ; up to 16383 digits after the decimal point
 
 --------------------------------
 <br/>

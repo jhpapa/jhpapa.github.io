@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "TIL(Today I Learned)<br/>시작하기"
+title: "TIL(Today I Learned) 시작하기"
 date: "2017-09-17 23:49"
 categories:
 - TIL
