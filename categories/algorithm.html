@@ -1,13 +1,14 @@
 ---
 layout: section
-title: "TIL"
-permalink: /til
+title: "알고리즘"
+permalink: "/algorithm"
 image: '/assets/img/series.png'
-description: "Today I Learned : 하루 정리"
+description: "알고리즘 풀이 정리"
 ---
 {% assign isEmpty = true %}
 {% for category in site.categories %}
-  {% if page.title == category[0] %}
+  {% assign page_title = page.title | capitalize %}
+  {% if page_title == category[0] %}
     {% assign isEmpty = false %}
     {% assign pages_list = category[1] %}
     {% for post in pages_list %}
@@ -43,6 +44,7 @@ description: "Today I Learned : 하루 정리"
     {% endfor %}
     {% assign pages_list = nil %}
     {% assign group = nil %}
+  <!-- </ul> -->
   {% endif %}
 {% endfor %}
 {% if isEmpty %}<span class="tag-title" style="text-align:center; padding-top:40px;">등록된 글이 없습니다 :(</span>{% endif %}
