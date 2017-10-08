@@ -3,9 +3,8 @@ layout: "post"
 title: "부동소수점 표현 문제"
 date: "2017-09-17 23:50"
 categories:
-- TIL
+- Programming
 tags:
-- TIL
 - PostgreSQL
 - 부동소수점
 - Numeric

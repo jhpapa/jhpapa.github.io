@@ -1,11 +1,10 @@
 ---
 layout: "post"
-title: "COUNT(*), COUNT(column)의 차이"
+title: "SQL - COUNT(*), COUNT(column)의 차이"
 date: "2017-09-20 23:28"
 categories:
-- TIL
+- Programming
 tags:
-- TIL
 - SQL
 - COUNT
 ---

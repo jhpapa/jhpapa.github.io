@@ -5,7 +5,7 @@ date: "2017-09-19 23:59"
 categories:
 - 알고리즘
 tags:
-- TIL
+- DP
 - BOJ
 - Algorithm
 - 알고리즘
