@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "알고리즘 풀이"
+title: "9095번 - 1, 2, 3 더하기"
 date: "2017-09-19 23:59"
 categories:
 - 알고리즘
