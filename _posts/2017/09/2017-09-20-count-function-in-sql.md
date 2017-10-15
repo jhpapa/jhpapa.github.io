@@ -3,7 +3,7 @@ layout: "post"
 title: "SQL - COUNT(*), COUNT(column)의 차이"
 date: "2017-09-20 23:28"
 categories:
-- Programming
+- Database
 tags:
 - SQL
 - COUNT
