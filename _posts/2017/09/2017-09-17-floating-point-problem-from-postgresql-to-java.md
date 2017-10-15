@@ -10,6 +10,7 @@ tags:
 - Numeric
 - Double
 - Java
+- Database
 ---
 
 # 부동소수점 표현 문제
