@@ -38,7 +38,7 @@ links:
     url: /programming
     sublink: true
   - title: Database
-    url: /Database
+    url: /database
     sublink: true
   - title: Web
     url: /web
