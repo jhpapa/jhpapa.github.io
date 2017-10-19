@@ -49,6 +49,9 @@ links:
   - title: 알고리즘
     url: /algorithm
     sublink: true
+  - title: Mac
+    url: /mac
+    sublink: true
   - title: Tags
     url: /tags
   - title: Archive

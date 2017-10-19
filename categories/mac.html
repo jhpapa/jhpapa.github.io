@@ -1,0 +1,50 @@
+---
+layout: section
+title: "Mac"
+permalink: "mac"
+image: '/assets/img/series.png'
+description: ""
+---
+{% assign isEmpty = true %}
+{% for category in site.categories %}
+  {% assign page_title = page.title | capitalize %}
+  {% if page_title == category[0] %}
+    {% assign isEmpty = false %}
+    {% assign pages_list = category[1] %}
+    {% for post in pages_list %}
+      <article role="article" class="post-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+              <a class="datetime" href="{{ post.url | prepend: site.baseurl }}">
+                  <meta itemprop="datePublished" content="{{post.date}}">
+                  <time datetime="{{ post.date | date_to_xmlschema }}">
+                      <span class="day">
+                          {{ post.date | date: "%d" }}
+                      </span>
+                      <span class="month-year">
+                          {{ post.date | date: "%B %Y" }}
+                      </span>
+                      <span>
+
+                      </span>
+                  </time>
+              </a>
+              <div class="content">
+                  <a href="{{ post.url | prepend: site.baseurl }}"><h2 class="post-title" itemprop="name">{{ post.title }}</h2></a>
+                  <a href="{{ post.url | prepend: site.baseurl }}index.html#disqus_thread" data-disqus-identifier="{{post.url}}"></a>
+                  <p class="description">
+                      {{ post.content | strip_html | truncatewords:40 }}
+                  </p>
+
+                  <div class="tags">
+                      {% for tag in post.tags %}
+                          <a href="{{ site.baseurl }}/tags/#{{tag | slugify }}">{{ tag }}</a>
+                      {% endfor %}
+                  </div>
+              </div>
+      </article>
+    {% endfor %}
+    {% assign pages_list = nil %}
+    {% assign group = nil %}
+  <!-- </ul> -->
+  {% endif %}
+{% endfor %}
+{% if isEmpty %}<span class="tag-title" style="text-align:center; padding-top:40px;">등록된 글이 없습니다 :(</span>{% endif %}
