@@ -160,3 +160,4 @@ vi는 사용자가 **삭제 명령(d)를 실행하면 버퍼에 방금 삭제한
 
 ## Vi tutorial 사이트
 [실시간으로 연습할 수 있는 사이트](http://www.openvim.com/)
+[Vim cheat sheet](https://vim.rtorr.com/lang/ko/)
