@@ -1308,7 +1308,7 @@ table {
 
 table th, table td {
   border: .125rem solid #ccc;
-  padding: .483rem
+  padding: .5rem 1rem .5rem 1rem;
 }
 
 .tag-title {
