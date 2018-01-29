@@ -133,7 +133,7 @@ lineStyles:
   blockquote: before: "> "
 
 # image tag template
-imageTag: "![{alt}]({src})"
+imageTag: "![{alt}]({{ site.url }}/{src})"
 # use relative path to image from the opened file
 relativeImagePath: false
 # rename copyed image based on title/alt
