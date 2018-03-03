@@ -30,6 +30,8 @@ toggle을 이용하지 않고 옵션을 끄고 싶다면 반대 옵션을 사용
 ``` vim
 syntax on " 형식별 구문 강조 표시
 set number " 라인 넘버 표시. (= nu)
+set showcmd " 사용자가 입력한 명령어 표시
+set showmatch " 현재 선택된 괄호의 쌍을 표시
 set relativenumber " 커서를 기준으로 라인 넘버 표시. 커서 위치에 따라 바뀜. (= rnu)
 set cursorline " 커서가 있는 라인을 강조 표시. (= cul)
 set colorschme [scheme명] " 테마 적용.
@@ -189,6 +191,8 @@ call vundle#end()
 filetype plugin indent on
 
 set number " 라인 넘버 표시. (= nu)
+set showcmd " 사용자가 입력한 명령어 표시
+set showmatch " 현재 선택된 괄호의 쌍을 표시
 "set relativenumber " 커서를 기준으로 라인 넘버 표시. 커서 위치에 따라 바뀜. (= rnu)
 "set cursorline " 커서가 있는 라인을 강조 표시. (= cul)
 set ruler " 커서 위치 표시. (= ru)
