@@ -1,54 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    {% include head.html %}
-    <body>
-        <!-- Fixed navigation -->
-        <div id='post-navigation' class='post-navigation' style='display: none;'>
-          <div class='post-navigation-warp'>
-            <span class='post-navigation-title'>{{ page.title }}</span>
-          </div>
-          <!-- <a class="scroll scroll-up" href="javscript:void(0)"><i class="icon fa fa-angle-up"></i></a>
-          <a class="scroll scroll-down" href="javscript:void(0)"><i class="icon fa fa-angle-down"></i></a> -->
-        </div>
+---
+layout: layout
+---
 
-        {% include svg-icons.html %}
-        {% include header-post.html %}
-        <section class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-            <article role="article" id="scroll" class="post-content" itemprop="articleBody">
-                {{ content }}
-            </article>
-
-            {% include share.html %}
-            {% include author.html %}
-            {% include comments.html %}
-            {% include footer.html %}
-        </section>
-    </body>
-    <script type="text/javascript" src="/assets/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript">
-      var isFixed = false;
-      var scrollTimer;
-      var scrollTriggerHeight = $('.header-post').outerHeight();
-
-      // Dynamic navigation
-      $(window).scroll(function(){
-        if (!scrollTimer) {
-          scrollTimer = setTimeout(function() {
-            if($(window).scrollTop() >= scrollTriggerHeight
-                && !$('#slide').hasClass('slide') && !$('.search-wrapper').hasClass('active')) {
-              $('#post-navigation').show().addClass('post-navigation');
-              $('#slide, #search').attr('style', 'position: fixed;')
-              $('#slide #open, #searchIcon').removeClass('icon-menu').addClass('icon-menu-nav');
-            } else if(!$('#slide').hasClass('slide')) {
-              $('#post-navigation').removeClass('post-navigation').hide();
-              $('#slide, #search').removeAttr('style');
-              $('#slide #open, #searchIcon').removeClass('icon-menu-nav').addClass('icon-menu');
-            }
-            scrollTimer = null;
-          }, 300);
-        }
-      });
-    </script>
-
-</html>
+{% assign __ = site.data.languages[site.language] %}
+{% include post.html %}

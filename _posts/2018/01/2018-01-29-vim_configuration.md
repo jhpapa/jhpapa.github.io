@@ -119,7 +119,7 @@ filetype plugin indent on
 설정이 끝나면 설정파일 저장 후, vim을 다시 켜거나 `:source %`를 입력해 설정 파일을 다시 로드해줍니다.<br/>
 이제 명령모드에서 `:PluginInstall`을 입력하면 설정 파일에 추가한 플러그인을 설치합니다.
 좌측 하단에 Done! 이라는 문구가 표시되면 설치가 완료됩니다.
-![플러그인 설치 완료]({{ site.url }}/assets/img/post_image/2018/01/vim_plugin_install_success.png)
+![플러그인 설치 완료]({{ site.url }}/assets/images/post_image/2018/01/vim_plugin_install_success.png)
 
 ### 플러그인 삭제
 
