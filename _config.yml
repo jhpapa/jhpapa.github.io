@@ -439,6 +439,9 @@ gitalk:
 # Google Analytics
 google_analytics: UA-87951110-1
 
+# Naver Analytics
+naver_analytics: 7df184b436946c
+
 # Yandex Webmaster tools verification setting
 # See: https://webmaster.yandex.ru/
 #yandex_site_verification:
