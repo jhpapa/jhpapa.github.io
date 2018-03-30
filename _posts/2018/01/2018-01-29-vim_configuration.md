@@ -43,7 +43,6 @@ hi statusline ctermfg=White ctermbg=4 cterm=none "활성화된 상태바 배경�
 hi statuslineNC ctermfg=White ctermbg=8 cterm=none " 윈도우가 2개 이상인 경우 비활성화된 윈도우의 배경색 및 폰트색 설정
 set mouse=a " 마우스로 스크롤 및 리사이즈 가능. [n : Normal mode / v : Visual mode / i : Insert mode / a : All modes]
 ```
-<br/>
 
 ## 검색 설정
 
@@ -53,7 +52,6 @@ set ignorecase " 검색시 대소문자를 구분하지 않음. (= ic)
 set incsearch " 검색어를 입력할 때마다 일치하는 문자열을 강조해서 표시. (= is)
 set smartcase " ignore 옵션이 켜져있더라도 검색어에 대문자가 있다면 정확히 일치하는 문자열을 찾음. (= scs)
 ```
-<br/>
 
 ## 들여쓰기 설정
 
@@ -66,19 +64,35 @@ set softtabstop=4 " 스페이스바 n개를 하나의 탭으로 처리. (= sts)
 " ex) 스페이스바 4개가 연속으로 있다면 백스페이스로 스페이스바를 지우면 스페이스바 4개를 하나의 탭으로 인식해 삭제.
 filetype indent on " indent.vim 파일에 설정된 파일 형식별 들여쓰기 적용.
 ```
-<br/>
 
 ## 입력 설정
 
 ``` vim
+set clipboard=unnamed " vim에서 복사한 내용이 클립보드에 저장
 set backspace=eol,start,indent " 라인의 시작과 끝의 들여쓰기를 백스페이스로 지움.
 set history=1000 " 편집한 내용 저장 개수 (되돌리기 제한 설정)
 set paste " 다른 곳에서 복사한 내용을 붙여넣을 때, 자동 들여쓰기가 적용되는 것을 막아 복사한 내용을 들여쓰기없이 복사.
 set pastetoggle=<F2> " paste 옵션이 적용되면 들여쓰기가 옵션이 제대로 작동하지 않기 때문에 toggle식으로 옵션을 키고 끌 수 있음.
 ```
-<br/>
+clipboard 옵션은 vim에서 복사한 내용을 클립보드에 저장해 다른 어플리케이션에서도 사용할 수 있게 해줍니다.<br/>
+해당 옵션을 설정하면 OS별로 클립보드로 사용하는 레지스터에 값을 추가로 저장해줍니다.
+
+옵션은 `unnamed`, `unnamedplus`(>= vim7.4) 두 개가 있으며 `unnamed`로 설정하면 `*`레지스터에 추가로 저장해주고, `unnamedplus`로 설정하면 `+` 레지스터에 추가로 저장됩니다.
+해당 옵션을 설정하기 위해 OS별로 어떤 레지스터를 사용하는지 알아야 합니다. <br/>
+OS별 클립보드로 사용하는 레지스터는 아래와 같습니다.
+* Windows : `+`레지스터 = `*`레지스터 (Windows에서 두 레지스터는 동일하게 사용)
+* OSX : `*`레지스터
+* Linux : `+`레지스터(Ctrl+C, Ctrl+V), `*`레지스터(drag, mouse button)
+
+Windows와 OSX는 모두 하나의 클립보드를 이용하며, Windows에서는 `*`, `+` 두 레지스터 모두 클립보드로 사용됩니다.  Linux에서는 앞의 두 OS와 다르게 두 개의 클립보드가 있습니다. Ctrl+C, Ctrl+V를 사용하면 `+`레지스터를 이용하고(CLIPBOARD), 마우스로 드래그해서 선택하여 마우스로 버튼으로 복사할 때는 `*`레지스터를 사용합니다(PRIMARY).
+
+OS별로 아래와 같이 설정하면 vim에서 복사한 내용을 다른 곳에서 Ctrl+C, Ctrl+V 를 이용해 복사할 수 있습니다.
+
+> Windows, OSX : `set clipboard=unnamed` <br/>
+> Linux : `set clipboard=unnamedplus`
+
 더 많은 옵션들이 있지만, 자주 쓸만한 옵션만 정리해보았습니다.
-<br/><br/>
+<br/>
 
 ## 플러그인
 
@@ -125,7 +139,7 @@ filetype plugin indent on
 
 플러그인을 삭제하고 싶다면 **설정 파일에서 추가한 플러그인의 git repository를 삭제**하고 설정 파일을 다시 로드한 다음 `:PluginClean`을 입력해주면
 설치할 때와 동일하게 좌측에 새창이 뜨면서 삭제할 플러그인이 보이고 삭제 여부를 물은 다음에 삭제 과정이 진행됩니다.
-<br/><br/>
+<br/>
 
 ## 유용한 플러그인
 다양한 플러그인에 대한 정보가 필요하다면 [Vim Awesome](https://vimawesome.com/)에서 찾을 수 있습니다.<br/>
@@ -143,7 +157,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree' " NERD Tree 추가
 call vundle#end()
 ```
-<br/>
 설정 파일을 다시 로드 후, vim의 명령모드에서 `:PluginInstall`을 입력하면 설치가 완료됩니다. <br/>
 NERD Tree 실행은 명령모드에서 `:NERDTree`라고 입력하면 좌측에 Tree view가 표시됩니다.
 
@@ -154,7 +167,6 @@ NERD Tree 실행은 명령모드에서 `:NERDTree`라고 입력하면 좌측에 
 let mapleader="\\"
 map <Leader>nt <ESC>:NERDTree<CR>
 ```
-<br/>
 이제 NERD Tree의 추가 옵션을 설정해보겠습니다.
 
 ``` vim
@@ -168,9 +180,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 ```
-<br/>
 
-아래는 제가 사용 중인 vim 설정입니다.
+## My vimrc
+아래는 제가 사용 중인 설정입니다.
 
 ``` vim
 set nocompatible
@@ -196,6 +208,7 @@ set showmatch " 현재 선택된 괄호의 쌍을 표시
 "set relativenumber " 커서를 기준으로 라인 넘버 표시. 커서 위치에 따라 바뀜. (= rnu)
 "set cursorline " 커서가 있는 라인을 강조 표시. (= cul)
 set ruler " 커서 위치 표시. (= ru)
+set clipboard=unnamed " 복사시 추가로 클립보드에 저장
 set mouse=a " 마우스로 스크롤 및 리사이즈 가능. [n : Normal mode / v : Visual mode / i : Insert mode / a : All modes]
 set laststatus=2 " 상태바 표시. (= ls) [0: 상태바 미표시 / 1: 2개 이상의 윈도우에서 표시 / 2: 항상 표시]
 set statusline=%F\ %y%m%r\ %=Line:\ %l/%L\ [%p%%]\ Col:%c\ Buf:%n " 상태바 커스터마이징 %<item>으로 사용하며, \는 구분자로 공백을 넣을 경우는 구분자를 넣어줘야함.
@@ -249,5 +262,5 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 ```
 --------------------------------
-### 참고문서
+# 참고
 * [Top 50 Vim Configuration Options](https://www.shortcutfoo.com/blog/top-50-vim-configuration-options/)
