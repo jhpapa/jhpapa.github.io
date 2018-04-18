@@ -29,4 +29,4 @@ tags:
 2-2. N-2 -> N-1 -> N을 밟았다면 그전에 연속되었을 가능성이 존재하기 때문에 안됨
 3. 마지막 2번째 전 계단을 밟았을 때
 
-### [풀이한 코드](https://github.com/Sihong12/Algorithms/blob/master/src/BOJ/DP/Problem_2579.java)
+### [풀이한 코드](https://github.com/hongsii/Algorithms/blob/master/src/BOJ/DP/Problem_2579.java)

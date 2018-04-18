@@ -32,7 +32,7 @@ tags:
 
 
 
-### [풀이한 코드](https://github.com/Sihong12/Algorithms/blob/master/src/BOJ/DP/Problem_9095.java)
+### [풀이한 코드](https://github.com/hongsii/Algorithms/blob/master/src/BOJ/DP/Problem_9095.java)
 
 <br/>
 올 수 있는 숫자가 제한 되어 있기 때문에 금방 풀 수 있었다.

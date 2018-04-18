@@ -61,4 +61,4 @@ tags:
 
 상세 코드 구현은 아래 코드를 참고해주세요.
 
-### [풀이 코드](https://github.com/Sihong12/Algorithms/blob/master/src/BOJ/DP/Problem_2579.java)
+### [풀이 코드](https://github.com/hongsii/Algorithms/blob/master/src/BOJ/DP/Problem_2579.java)

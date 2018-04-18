@@ -26,6 +26,6 @@ tags:
 1. 색깔별로 모든 집을 칠할 때의 최소가 되는 경우의 수를 구한다.
 2. 구한 경우의 수 중에 가장 작은 값을 선택한다.
 
-### [풀이한 코드](https://github.com/Sihong12/Algorithms/blob/master/src/BOJ/DP/Problem_1149.java)
+### [풀이한 코드](https://github.com/hongsii/Algorithms/blob/master/src/BOJ/DP/Problem_1149.java)
 
 위 코드에서 min 메소드를 정의했지만, Math 클래스의 min 함수를 쓰는게 더 나을거 같다.
