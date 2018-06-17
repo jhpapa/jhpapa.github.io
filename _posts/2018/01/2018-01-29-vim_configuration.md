@@ -181,6 +181,54 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 ```
 
+### Vim instant markdown (Markdown Preview)
+[iamcco/markdown-preview.vim](https://github.com/iamcco/markdown-preview.vim)은 Vim에서 Markdown 파일을 편집할 때, 실시간으로 편집 내용을 브라우저를 통해 확인할 수 있는 플러그인입니다.
+
+`vimrc`의 플러그인 매니저에 아래와 같은 플러그인 2개를 추가해주고 install합니다.
+
+``` vim
+Plugin 'iamcco/mathjax-support-for-mkdp'
+Plugin 'iamcco/markdown-preview.vim'
+```
+
+사용 방법은 Markdown 파일을 열고 `:MarkdownPreview`를 입력하기만 하면 됩니다. 멈추고 싶다면 `MarkdownPreviewStop`을 입력하면 MarkdownPreview 브라우저가 종료됩니다. 
+
+
+``` vim
+let g:mkdp_path_to_chrome = ""
+" Markdown Preview를 열고자하는 브라우저 경로 설정 (기본적으로 Chrome을 사용)
+" 해당 옵션을 설정하게 된다면 g:mkdp_browserfunc는 무시됩니다.
+
+let g:mkdp_browserfunc = 'MKDP_browserfunc_default'
+" callback vim function to open browser, the only param is the url to open
+
+let g:mkdp_auto_start = 0
+" set to 1, the vim will open the preview window once enter the markdown
+" buffer
+
+let g:mkdp_auto_open = 0
+" set to 1, the vim will auto open preview window when you edit the
+" markdown file
+
+let g:mkdp_auto_close = 1
+" set to 1, the vim will auto close current preview window when change
+" from markdown buffer to another buffer
+
+let g:mkdp_refresh_slow = 0
+" set to 1, the vim will just refresh markdown when save the buffer or
+" leave from insert mode, default 0 is auto refresh markdown as you edit or
+" move the cursor
+
+let g:mkdp_command_for_global = 0
+" set to 1, the MarkdownPreview command can be use for all files,
+" by default it just can be use in markdown file
+```
+
+
+
+
+
+
 ## My vimrc
 아래는 제가 사용 중인 설정입니다.
 
