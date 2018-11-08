@@ -18,7 +18,7 @@ git push와 관련된 질문에 답변하기 위해 찾아보던 중 알게된 �
 
 이러한 오류가 발생한 이유에 대해 이해하기 위해선 `git push --help`에 나온 push 사용법부터 시작해야합니다.
 
-``` bash
+```
 git push [option...] [<repository> [<refspec>...]]
 ```
 
@@ -31,7 +31,7 @@ Refspec을 알기 위해선 먼저 Refs가 무엇인지를 알아야 합니다. 
 이러한 해시값만 알면 저장된 커밋을 조회할 수 있지만, 사람이 일일이 해시값을 기억하기 어렵기 때문에 외우기 쉬운 이름의 파일에 해시값이 저장되어있습니다. 이런 파일을 `References`라고 부르며 약자로 `Refs`라고 합니다.  
 모든 refs는 `.git/refs`에 저장됩니다. 그리고 하위에는 heads, remotes, tags 디렉토리가 존재합니다.
 
-``` bash
+```
 $ pwd
 test-repo/.git/refs
 $ ls
@@ -47,7 +47,7 @@ master 라는 이름이 친숙하게 느껴지시죠? 우리가 흔히 아는 ma
 
 확인을 위해 브랜치 명령어를 사용하지 않고 branch1을 직접 만들어 보겠습니다. 아래의 명령어로 해시값의 refs를 생성할 수 있습니다.
 
-``` bash
+```
 git update-ref refs/heads/branch1 4c009fbb5847d4b4d3a32984a1004259c15c8ada
 ```
 
@@ -63,7 +63,7 @@ master 밖에 없었지만 명령어가 실행되면 branch1 이라는 refs가 �
 
 이제 간단한 예와 함께 refspec을 설명하겠습니다. 리모트 저장소를 추가하는 명령어를 실행하고 나면 `.git/config` 파일 하단에 추가한 리모트 저장소의 정보가 추가됩니다.
 
-``` bash
+```
 $ git remote add origin https://github.com/hongsii/test-repo.git
 $ cat .git/config
 [core]
@@ -85,7 +85,7 @@ refspec은 저장소의 refs를 매핑하는 방법을 나타내며, `+`와 `<sr
 
  로컬 저장소의 커밋 히스토리를 보고 싶다면 아래의 명령어를 입력하면 모두 동일하게 로컬 저장소의 히스토리를 보여줍니다.
 
-``` bash
+```
 # 로컬 저장소 커밋 히스토리 조회
 $ git log master
 $ git log heads/master
@@ -94,7 +94,7 @@ $ git log refs/heads/master
 
 원격 저장소의 히스토리 또한, 동일한 방식으로 조회할 수 있습니다.
 
-``` bash
+```
 $ git log origin/master
 $ git log remotes/origin/master
 $ git log refs/remotes/origin/master
@@ -102,7 +102,7 @@ $ git log refs/remotes/origin/master
 
 이제 어느정도 refspec이 무엇인지 감이 좀 오시나요? 다시 push로 돌아가보겠습니다.  
 
-``` bash
+```
 $ git push origin master
 ```
 
@@ -113,7 +113,7 @@ $ git push origin master
 
 만약 src를 생략할 경우에는 리모트 저장소에 있는 브랜치가 삭제됩니다.
 
-``` bash
+```
 # 리모트의 master 브랜치 삭제
 git push origin :master
 ```
@@ -128,7 +128,7 @@ git push origin :master
 .git/refs/heads 디렉토리에 master라는 refs가 존재하지 않기 때문에 푸시를 할 수가 없다고 나는 에러입니다. 지금 같은 상황을 해결하기 위해선
 다른 refs로 푸시를 하거나 원하는 커밋으로 refs를 생성해야 합니다.
 
-``` bash
+```
 $ git push origin HEAD:master
 
 또는
@@ -151,7 +151,7 @@ $ git push origin master
 문제를 해결하면서 HEAD를 사용했는데 HEAD는 사용자의 활성화된 브랜치를 가리키고 있는 **symbolic refs**입니다.  
 HEAD 파일의 위치는 `.git` 디렉토리 아래에 위치하고 있습니다.
 
-``` bash
+```
 $ cat test-repo/.git/HEAD
 ref: refs/heads/master
 ```
@@ -160,5 +160,5 @@ HEAD는 해시값을 직접 저장하지 않고 해시값이 저장된 refs를 �
 
 # 참고
 
-* ![Git - Refspec](https://git-scm.com/book/en/v2/Git-Internals-The-Refspec)
-* ![Stack Overflow - What is "Refspec"](https://stackoverflow.com/questions/44333437/git-what-is-refspec)
+* [Git - Refspec](https://git-scm.com/book/en/v2/Git-Internals-The-Refspec)
+* [Stack Overflow - What is "Refspec"](https://stackoverflow.com/questions/44333437/git-what-is-refspec)
