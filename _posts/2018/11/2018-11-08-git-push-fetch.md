@@ -1,12 +1,12 @@
 ---
 layout: 'post'
-title: 'git push/fetch 내부 동작 정리'
-description: 'Refs, Refspec, push, fetch 설명'
+title: 'Git push/fetch 내부 동작 정리'
+description: 'Refs, Refspec, Push, Fetch 설명'
 date: '2018-11-08 01:11'
 categories:
-  - git
+  - Git
 tags:
-  - git
+  - Git
 ---
 
 # 시작
