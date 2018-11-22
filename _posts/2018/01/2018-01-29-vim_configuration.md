@@ -29,12 +29,12 @@ toggle을 이용하지 않고 옵션을 끄고 싶다면 반대 옵션을 사용
 
 ``` vim
 syntax on " 형식별 구문 강조 표시
+colorschme [scheme명] " 테마 적용.
 set number " 라인 넘버 표시. (= nu)
 set showcmd " 사용자가 입력한 명령어 표시
 set showmatch " 현재 선택된 괄호의 쌍을 표시
 set relativenumber " 커서를 기준으로 라인 넘버 표시. 커서 위치에 따라 바뀜. (= rnu)
 set cursorline " 커서가 있는 라인을 강조 표시. (= cul)
-set colorschme [scheme명] " 테마 적용.
 set ruler " 커서 위치 표시. (= ru)
 set laststatus=2 " 상태바 표시. (= ls) [0: 상태바 미표시 / 1: 2개 이상의 윈도우에서 표시 / 2: 항상 표시]
 " 상태바 커스터마이징 %<item>으로 사용하며, \는 구분자로 공백을 넣을 경우는 구분자를 넣어줘야함.
@@ -43,6 +43,9 @@ hi statusline ctermfg=White ctermbg=4 cterm=none "활성화된 상태바 배경�
 hi statuslineNC ctermfg=White ctermbg=8 cterm=none " 윈도우가 2개 이상인 경우 비활성화된 윈도우의 배경색 및 폰트색 설정
 set mouse=a " 마우스로 스크롤 및 리사이즈 가능. [n : Normal mode / v : Visual mode / i : Insert mode / a : All modes]
 ```
+
+* colorscheme는 Mac 기준 `/usr/share/vim/vim{version}/colors`에 위치하고 있습니다.
+    * 여러가지 컬러는 [여기](https://vimcolors.com/)에서 다운로드받을 수 있습니다. 다운로드 받은 scheme는 `~/.vim/colors/` 디렉토리(존재하지 않는 경우 생성)에 넣으면  적용할 수 있습니다.
 
 ## 검색 설정
 
