@@ -44,8 +44,9 @@ hi statuslineNC ctermfg=White ctermbg=8 cterm=none " 윈도우가 2개 이상인
 set mouse=a " 마우스로 스크롤 및 리사이즈 가능. [n : Normal mode / v : Visual mode / i : Insert mode / a : All modes]
 ```
 
-* colorscheme는 Mac 기준 `/usr/share/vim/vim{version}/colors`에 위치하고 있습니다.
-    * 여러가지 컬러는 [여기](https://vimcolors.com/)에서 다운로드받을 수 있습니다. 다운로드 받은 scheme는 `~/.vim/colors/` 디렉토리(존재하지 않는 경우 생성)에 넣으면  적용할 수 있습니다.
+* 기본으로 제공되는 colorscheme는 Mac 기준 `/usr/share/vim/vim{version}/colors`에 위치하고 있습니다.
+    * 여러가지 컬러는 [여기](https://vimcolors.com/)에서 다운로드받을 수 있습니다.
+    * 다운로드 받은 scheme는 `~/.vim/colors/` 디렉토리(존재하지 않는 경우 생성)에 넣으면  적용할 수 있습니다.
 
 ## 검색 설정
 
