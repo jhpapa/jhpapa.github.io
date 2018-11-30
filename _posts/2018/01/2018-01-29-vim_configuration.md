@@ -78,11 +78,11 @@ set history=1000 " 편집한 내용 저장 개수 (되돌리기 제한 설정)
 set paste " 다른 곳에서 복사한 내용을 붙여넣을 때, 자동 들여쓰기가 적용되는 것을 막아 복사한 내용을 들여쓰기없이 복사.
 set pastetoggle=<F2> " paste 옵션이 적용되면 들여쓰기가 옵션이 제대로 작동하지 않기 때문에 toggle식으로 옵션을 키고 끌 수 있음.
 ```
-clipboard 옵션은 vim에서 복사한 내용을 클립보드에 저장해 다른 어플리케이션에서도 사용할 수 있게 해줍니다.<br/>
+clipboard 옵션은 vim에서 복사한 내용을 클립보드에 저장해 다른 어플리케이션에서도 사용할 수 있게 해줍니다.  
 해당 옵션을 설정하면 OS별로 클립보드로 사용하는 레지스터에 값을 추가로 저장해줍니다.
 
 옵션은 `unnamed`, `unnamedplus`(>= vim7.4) 두 개가 있으며 `unnamed`로 설정하면 `*`레지스터에 추가로 저장해주고, `unnamedplus`로 설정하면 `+` 레지스터에 추가로 저장됩니다.
-해당 옵션을 설정하기 위해 OS별로 어떤 레지스터를 사용하는지 알아야 합니다. <br/>
+해당 옵션을 설정하기 위해 OS별로 어떤 레지스터를 사용하는지 알아야 합니다.   
 OS별 클립보드로 사용하는 레지스터는 아래와 같습니다.
 * Windows : `+`레지스터 = `*`레지스터 (Windows에서 두 레지스터는 동일하게 사용)
 * OSX : `*`레지스터
@@ -92,20 +92,20 @@ Windows와 OSX는 모두 하나의 클립보드를 이용하며, Windows에서�
 
 OS별로 아래와 같이 설정하면 vim에서 복사한 내용을 다른 곳에서 Ctrl+C, Ctrl+V 를 이용해 복사할 수 있습니다.
 
-> Windows, OSX : `set clipboard=unnamed` <br/>
+> Windows, OSX : `set clipboard=unnamed`   
 > Linux : `set clipboard=unnamedplus`
 
 더 많은 옵션들이 있지만, 자주 쓸만한 옵션만 정리해보았습니다.
-<br/>
+  
 
 ## 플러그인
 
-vim에서 플러그인을 사용하려면 [Vundle](https://github.com/VundleVim/Vundle.vim)이라는 플러그인 매니저가 필요합니다.<br/>
+vim에서 플러그인을 사용하려면 [Vundle](https://github.com/VundleVim/Vundle.vim)이라는 플러그인 매니저가 필요합니다.  
 설치 방법 및 유용한 플러그인까지 알아보겠습니다.
 
 ### Vundle 설치
 
-Vundle의 github을 clone받으면 필요한 파일을 받을 수 있습니다.<br/>
+Vundle의 github을 clone받으면 필요한 파일을 받을 수 있습니다.  
 아래 명령어를 터미널창에서 입력해줍니다.
 
 > git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -129,12 +129,12 @@ call vundle#end()
 
 filetype plugin indent on
 ```
-<br/>
+  
 옵션 중 `filetype off`한 뒤, 다시 켜는 이유는 vim은 runtimepath의 플러그인을 캐싱하는데 Vundle은 runtimepath를 변경하기 때문에 꺼두었다가 작업이 끝나면 켜지도록 해야합니다.
 
 ### 플러그인 설치
 
-설정이 끝나면 설정파일 저장 후, vim을 다시 켜거나 `:source %`를 입력해 설정 파일을 다시 로드해줍니다.<br/>
+설정이 끝나면 설정파일 저장 후, vim을 다시 켜거나 `:source %`를 입력해 설정 파일을 다시 로드해줍니다.  
 이제 명령모드에서 `:PluginInstall`을 입력하면 설정 파일에 추가한 플러그인을 설치합니다.
 좌측 하단에 Done! 이라는 문구가 표시되면 설치가 완료됩니다.
 ![플러그인 설치 완료]({{ site.url }}/assets/images/post_image/2018/01/vim_plugin_install_success.png)
@@ -143,14 +143,14 @@ filetype plugin indent on
 
 플러그인을 삭제하고 싶다면 **설정 파일에서 추가한 플러그인의 git repository를 삭제**하고 설정 파일을 다시 로드한 다음 `:PluginClean`을 입력해주면
 설치할 때와 동일하게 좌측에 새창이 뜨면서 삭제할 플러그인이 보이고 삭제 여부를 물은 다음에 삭제 과정이 진행됩니다.
-<br/>
+  
 
 ## 유용한 플러그인
-다양한 플러그인에 대한 정보가 필요하다면 [Vim Awesome](https://vimawesome.com/)에서 찾을 수 있습니다.<br/>
+다양한 플러그인에 대한 정보가 필요하다면 [Vim Awesome](https://vimawesome.com/)에서 찾을 수 있습니다.  
 플러그인을 추가하려면 직접 git을 clone받아서 설정하거나, Vundle을 이용해 설정하는 방법이 있습니다. 위에서 Vundle을 설치했기 때문에 해당 설치 방법만 설명하겠습니다.
 
 ### The NERD Tree
-[The NERD Tree](https://github.com/scrooloose/nerdtree)는 vim내에서 Tree 형태로 폴더 구조를 보여주는 플러그인입니다.<br/>
+[The NERD Tree](https://github.com/scrooloose/nerdtree)는 vim내에서 Tree 형태로 폴더 구조를 보여주는 플러그인입니다.  
 먼저 `vimrc`에 **NERD Tree의 git repository를 추가**합니다.
 
 ``` vim
@@ -161,16 +161,18 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree' " NERD Tree 추가
 call vundle#end()
 ```
-설정 파일을 다시 로드 후, vim의 명령모드에서 `:PluginInstall`을 입력하면 설치가 완료됩니다. <br/>
+설정 파일을 다시 로드 후, vim의 명령모드에서 `:PluginInstall`을 입력하면 설치가 완료됩니다.   
 NERD Tree 실행은 명령모드에서 `:NERDTree`라고 입력하면 좌측에 Tree view가 표시됩니다.
 
-매번 명령어를 입력하기 귀찮기 때문에 단축키 설정을 해줍니다. <br/>
-설정 파일을 연다음에 아래와 같이 설정해줍니다. 전 단축키를 `\nt`로 설정하겠습니다.<br/>
+매번 명령어를 입력하기 귀찮기 때문에 단축키 설정을 해줍니다.   
+설정 파일을 연다음에 아래와 같이 설정해줍니다. 전 단축키를 `\nt`로 설정하겠습니다.  
 단축키 설정은 `map 단축키 명령어`로 합니다.
+
 ``` vim
 let mapleader="\\"
 map <Leader>nt <ESC>:NERDTree<CR>
 ```
+
 이제 NERD Tree의 추가 옵션을 설정해보겠습니다.
 
 ``` vim
@@ -196,7 +198,6 @@ Plugin 'iamcco/markdown-preview.vim'
 ```
 
 사용 방법은 Markdown 파일을 열고 `:MarkdownPreview`를 입력하기만 하면 됩니다. 멈추고 싶다면 `MarkdownPreviewStop`을 입력하면 MarkdownPreview 브라우저가 종료됩니다. 
-
 
 ``` vim
 let g:mkdp_path_to_chrome = ""
@@ -227,11 +228,6 @@ let g:mkdp_command_for_global = 0
 " set to 1, the MarkdownPreview command can be use for all files,
 " by default it just can be use in markdown file
 ```
-
-
-
-
-
 
 ## My vimrc
 아래는 제가 사용 중인 설정입니다.
@@ -313,6 +309,8 @@ let g:ctrlp_custom_ignore = {
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 ```
+
 --------------------------------
+
 # 참고
 * [Top 50 Vim Configuration Options](https://www.shortcutfoo.com/blog/top-50-vim-configuration-options/)
