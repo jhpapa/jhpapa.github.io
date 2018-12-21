@@ -26,14 +26,13 @@ public String toString() {
 흔히 클래스를 상속받거나 인터페이스를 구현하여 메소드를 재정의할 때 붙이는 어노테이션입니다. 이 것을 지운다고 해서 컴파일 에러가 나거나 프로그램이 정상적으로 동작하거나 하지 않습니다. 실행에는 전혀 영향을 미치지 않죠. 단지 메소드가 재정의되었다는 것만 알려주는 용도로만 사용됩니다.
 
 그럼 어노테이션을 붙임으로써 얻을 수 있는 장점은 무엇일까요?
-이 경우는 컴파일러에게 메소드가 된 것을 알려주면 컴파일러는 사용자가 잘못된 오버라이드 (메소드명에 오타가 있다던가 메소드 시그니쳐를 다르다던가)를 했을 때, 컴파일 에러를 발생시켜 사용자가 이를 고칠 수 있게 도와줍니다.
+이 경우는 컴파일러에게 메소드가 재정의된 것을 알려주면 컴파일러는 사용자가 잘못된 오버라이드 (메소드명에 오타가 있다던가 메소드 시그니쳐를 다르다던가)를 했을 때, 컴파일 에러를 발생시켜 사용자가 이를 고칠 수 있게 도와줍니다.  
 이처럼 어노테이션은 클래스, 필드, 메소드 등등에 코드에 대한 부가설명 및 컴파일 단계에서 도움을 주는 역할로 사용됩니다.
 
 ## 내장 어노테이션
 
-자바에서는 몇가지 어노테이션을 기본적으로 제공합니다.
-
-해당 어노테이션은 `java.lang` 패키지에 속하며, 총 5개의 어노테이션이 있습니다.
+자바에서는 몇가지 어노테이션을 기본적으로 제공합니다.  
+`java.lang` 패키지에 속하며, 총 5개의 어노테이션이 있습니다.
 
 * `@Override` : 상위 타입에 정의된 메소드를 재정의했다는 것을 알리기 위해 사용합니다.
 * `@Deprecated` : 사용하면 위험한 코드를 나태거나 이보다 더 나은 코드가 존재하기 때문에 사용하면 안된다는 것을 나타내기 위해 사용합니다.
@@ -48,8 +47,7 @@ public String toString() {
 
 ## 커스텀 어노테이션
 
-커스텀 어노테이션와 관련된 소스는 `java.lang.annotation` [패키지](https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/package-summary.html)에 속해있습니다.
-
+커스텀 어노테이션와 관련된 소스는 `java.lang.annotation` [패키지](https://docs.oracle.com/javase/8/docs/api/java/lang/annotation/package-summary.html)에 속해있습니다.  
 커스텀 어노테이션을 정의하려면 `@interface`로 선언해주면 됩니다. `@`는 인터페이스와 어노테이션을 구분하기 위한 기호입니다. interface에 기호를 붙여주는 형태기 때문에 공백을 넣어 `@ interface`도 가능하지만, 표준 스타일을 맞추기 위해 붙여주는게 좋습니다.
 
 ``` java
@@ -66,7 +64,7 @@ public interface MyAnnotation extends java.lang.annotation.Annotation {}
 
 어노테이션 타입은 다음과 같은 내용을 인터페이스 내에 작성할 수 있습니다.
 
-> 일반 선언 : [추상메소드선언자] 타입 명칭() [DefaultValue];
+> 일반 선언 : [추상메소드선언자] 타입 명칭() [DefaultValue];  
 > 배열 선언 : [추상메소드선언자] 타입 명칭() [] [DefaultValue];
 
 * [...]와 같은 내용은 옵션으로 생략할 수 있습니다.
@@ -92,7 +90,7 @@ public @interface MyCustom {
 }
 ```
 
-1가지의 내용만 정의하는 경우에는 관례적으로 명칭을 `value()` 라고 사용합니다.
+1가지의 내용만 정의하는 경우에는 관례적으로 명칭을 `value()` 라고 사용합니다.  
 `default`를 생략할 경우에는 **반드시 어노테이션 사용시 값을 입력**해줘야 합니다.
 
 ``` java
@@ -130,8 +128,7 @@ public class MyClass {}
 
 ### 미리 정의된 메타 어노테이션
 
-커스텀 어노테이션 작성시 어노테이션을 설명하기 위한 메타 어노테이션이 있습니다.
-
+커스텀 어노테이션 작성시 어노테이션을 설명하기 위한 메타 어노테이션이 있습니다.  
 메타 어노테이션은 아래와 같이 5개가 존재합니다.
 
 * `@Documented` : javadoc 및 기타 문서툴에 의해 문서화될 때 해당 어노테이션이 표시됩니다.
@@ -145,19 +142,19 @@ public class MyClass {}
 **어노테이션을 사용할 수 있는 대상(위치)를 나타내는 어노테이션**입니다. 만약, Target에 선언된 대상과 다른 대상에 어노테이션을 적용할 경우 컴파일 에러가 발생합니다.  
 타입으로 enum인 `ElementType[]`을 받습니다. 아래는 ElementType에 선언된 요소입니다.
 
-* TYPE : class, interface, annotation, enum 에만 사용 가능
-* FIELD : 필드, enum 상수에만 사용 가능
-* METHOD : 메소드에만 사용 가능
-* PARAMETER : 파라미터에만 사용 가능
-* CONSTRUCTOR : 생성자에만 사용 가능
-* LOCAL_VARIABLE : 지역변수에만 사용 가능
-* ANNOTATION_TYPE : 어노테이션에만 사용 가능
-* PACKAGE : 패키지에만 사용 가능
+* `TYPE` : class, interface, annotation, enum 에만 사용 가능
+* `FIELD` : 필드, enum 상수에만 사용 가능
+* `METHOD` : 메소드에만 사용 가능
+* `PARAMETER` : 파라미터에만 사용 가능
+* `CONSTRUCTOR` : 생성자에만 사용 가능
+* `LOCAL_VARIABLE` : 지역변수에만 사용 가능
+* `ANNOTATION_TYPE` : 어노테이션에만 사용 가능
+* `PACKAGE` : 패키지에만 사용 가능
 
 아래는 자바8 부터 추가되었습니다.
 
-* TYPE_PARAMETER : 타입 파라미터(T, E와 같은)에만 사용 가능
-* TYPE_USE : [JLS의 15가지 타입](https://docs.oracle.com/javase/specs/jls/se8/html/jls-4.html#jls-4.11)과 타입 파라미터에 사용 가능 
+* `TYPE_PARAMETER` : 타입 파라미터(T, E와 같은)에만 사용 가능
+* `TYPE_USE` : [JLS의 15가지 타입](https://docs.oracle.com/javase/specs/jls/se8/html/jls-4.html#jls-4.11)과 타입 파라미터에 사용 가능 
 
 ``` java
 // 필드에만 MyCustom 어노테이션 사용 가능
@@ -189,8 +186,7 @@ public @interface MyCustom {}
 ```
 #### @Inherited
 
-부모클래스에 선언된 어노테이션이 자식클래스에 상속됩니다.
-
+부모클래스에 선언된 어노테이션이 자식클래스에 상속됩니다.  
 테스트를 위해 아래와 같이 `@NonInheritedAnnotation`, `@InheritedAnnotation` 두개를 만듭니다.
 
 ``` java
