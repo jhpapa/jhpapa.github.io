@@ -250,6 +250,78 @@ inherited C : @InheritedAnnotation()
 class Repeat {}
 ```
 
+실제 커스텀 어노테이션을 만들고 사용해보겠습니다.  
+유저를 생성할 때, 자동으로 생성일시를 설정해주는 어노테이션을 만들겠습니다.  
+런타임시 필드에 사용할 수 있는 `@CreatedTime` 어노테이션을 아래와 같이 만들어줍니다.
+
+``` java
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@interface CreatedTime {}
+```
+
+`User` 클래스에 `createdTime` 이라는 필드를 만들고 어노테이션을 적용합니다.
+
+``` java
+class User{
+
+	private String name;
+	private String password;
+	@CreatedTime
+	private LocalDateTime createdTime;
+
+	public User(String name, String password) {
+		this.name = name;
+		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"name='" + name + '\'' +
+				", password='" + password + '\'' +
+				", createdTime=" + createdTime +
+				'}';
+	}
+}
+```
+
+`setCreatedTime` 메소드에서 리플렉션을 통해 `User` 클래스의 필드를 조회해 `@CreatedTime`이 있는 필드에 현재 시간을 설정해줍니다.
+
+``` java
+public class AnnotationTest {
+
+	public static void main(String[] args) throws Exception {
+		User newUser = new User("이름", "비밀번호"); // 유저 생성
+
+		System.out.println("before : " + newUser);
+		setCreatedTime(newUser); // 생성일시 설정
+		System.out.println(" after : " + newUser);
+	}
+
+	public static void setCreatedTime(Object target) throws Exception {
+		Class<?> clazz = target.getClass();
+		Arrays.stream(clazz.getDeclaredFields()) // 클래스의 필드 조회
+				.filter(field -> Objects.nonNull(field.getDeclaredAnnotation(CreatedTime.class))) // @CreatedTime이 적용된 필드만 필터
+				.forEach(field -> {
+					try {
+						field.setAccessible(true); // private 필드에 접근하기 위해 Accessible을 true로 설정
+						field.set(target, LocalDateTime.now()); // 필드에 현재 시간 설정
+					} catch (IllegalAccessException e) {
+						e.printStackTrace();
+					}
+				});
+	}
+}
+```
+
+실행이 끝나면 생성일시가 설정된 것을 볼 수 있습니다.
+
+``` java
+before : User{name='이름', password='비밀번호', createdTime=null}
+ after : User{name='이름', password='비밀번호', createdTime=2018-12-12T23:31:06.172}
+```
+
 ---------
 
 
