@@ -250,6 +250,8 @@ inherited C : @InheritedAnnotation()
 class Repeat {}
 ```
 
+### 커스텀 어노테이션 적용
+
 실제 커스텀 어노테이션을 만들고 사용해보겠습니다.  
 유저를 생성할 때, 자동으로 생성일시를 설정해주는 어노테이션을 만들겠습니다.  
 런타임시 필드에 사용할 수 있는 `@CreatedTime` 어노테이션을 아래와 같이 만들어줍니다.
@@ -323,7 +325,6 @@ before : User{name='이름', password='비밀번호', createdTime=null}
 ```
 
 ---------
-
 
 # 참고
 
