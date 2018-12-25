@@ -1,7 +1,7 @@
 ---
 layout: 'post'
 title: '자바 어노테이션'
-description: ''
+description: '내장 및 커스텀 어노테이션 정리'
 date: '2018-12-12 22:30'
 categories:
   - Java
