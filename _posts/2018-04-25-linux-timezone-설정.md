@@ -32,10 +32,10 @@ $ sudo dpkg-reconfigure tzdata
 ```
 
 설정 화면에서 설정할 지역을 선택합니다. `Asia`를 선택해줍니다.
-![timezone-1]({{ site.url }}/assets/images/post_image/2018/04/timezone-1.png)
+![timezone-1](/assets/images/post/timezone-1.png)
 
 다음 화면에서 `S`를 입력 후, `Seoul`을 찾아서 선택해줍니다.
-![timezone-2]({{ site.url }}/assets/images/post_image/2018/04/timezone-2.png)
+![timezone-2](/assets/images/post/timezone-2.png)
 
 그리고 다시 타임존을 조회하면 정상적으로 시간대가 나오는 것을 확인할 수 있습니다.
 
