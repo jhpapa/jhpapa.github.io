@@ -2,11 +2,11 @@
 layout: post
 title: Vim 설정하기
 date: '2018-01-29 00:41'
-tags:
-  - vim
-  - 에디터
 categories:
-  - Programming
+  - Editor
+tags:
+  - vi
+  - vim
 ---
 
 # Vim 설정하기

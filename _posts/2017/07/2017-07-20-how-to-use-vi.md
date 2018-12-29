@@ -2,12 +2,11 @@
 layout: post
 title: Vi 에디터
 date: '2017-07-20 01:52'
+categories:
+- Editor
 tags:
 - vi
-- 에디터
-- 단축키
-categories:
-- Programming
+- vim
 ---
 
 # Vi

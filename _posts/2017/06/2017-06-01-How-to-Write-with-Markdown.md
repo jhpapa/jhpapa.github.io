@@ -5,7 +5,7 @@ date: 2017-06-01 21:29
 updated: 2018-04-22 18:17
 description: '마크다운 문법 숙지'
 categories:
-- Markdown
+- Editor
 tags:
 - Markdown
 ---
