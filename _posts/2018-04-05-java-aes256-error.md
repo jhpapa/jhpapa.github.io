@@ -1,14 +1,14 @@
 ---
 layout: post
-title: 'AES256 암호화 사용시 java.security.InvalidKeyException: Illegal key size'
-description: ''
+title: '자바 AES256 암호화 관련 에러'
+description: 'AES256 암호화 사용시 java.security.InvalidKeyException: Illegal key size 해결 방법'
 date: '2018-04-05 23:04'
 categories:
   - Java
 tags:
   - Programming
   - Java
-  - JCE
+  - 암호화
 ---
 
 ## 발생 원인
