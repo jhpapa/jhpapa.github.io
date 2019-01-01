@@ -18,7 +18,7 @@ read -p "월 : " month
 read -p "일 : " day
 
 title="$title.md"
-publish_path=$POST_PATH/$year/$month
+publish_path=$POST_PATH
 publish_post="$year-$month-$day-$title"
 mkdir -p $publish_path && cp $TEMP_POST_PATH/$title "$_/$publish_post"
 ls $publish_path/$publish_post
