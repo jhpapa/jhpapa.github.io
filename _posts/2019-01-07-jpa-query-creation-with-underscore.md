@@ -10,6 +10,8 @@ tags:
   - Java
 ---
 
+> 테스트 코드는 [GitHub](https://github.com/hongsii/blog-code/tree/master/jpa-underscore-test)에서 확인할 수 있습니다.
+
 커뮤니티에서 JPA 관련 질문글에 답변하는 도중 새롭게 알게된 내용이 있어 테스트한 내용을 정리해보려고 합니다.
 
 > "스네이크 표기법인 컬럼으로 Repository에서 쿼리를 생성하는데 에러가 발생한다."
