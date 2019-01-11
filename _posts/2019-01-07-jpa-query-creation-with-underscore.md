@@ -12,7 +12,7 @@ tags:
 
 > 테스트 코드는 [GitHub](https://github.com/hongsii/blog-code/tree/master/jpa-underscore-test)에서 확인할 수 있습니다.
 
-커뮤니티에서 JPA 관련 질문글에 답변하는 도중 새롭게 알게된 내용이 있어 테스트한 내용을 정리해보려고 합니다.
+커뮤니티에서 JPA 관련 질문글에 답변하면서 알게된 내용을 테스트하고 정리해보려고 합니다.
 
 > "스네이크 표기법인 컬럼으로 Repository에서 쿼리를 생성하는데 에러가 발생한다."
 
@@ -40,16 +40,16 @@ public interface AppRepository extends JpaRepository<App, Integer>{
 }
 ```
 
-원인을 찾기 위해 첨부된 로그를 확인해보니 눈에 띄는게 하나 있었습니다.  
+원인을 찾기 위해 글에 첨부된 로그를 확인해보니 눈에 띄는게 하나 있었습니다.  
 
 ```
 Failed to create query for method AppRepository.findByProject_id(int)!
 No property id found for type Project! Traversed path: App.project.
 ```
 
-메소드의 쿼리를 생성하는데 실패하면서 `No property id found for type Project! Traversed path: App.project.`가 발생했습니다. 로그를 그대로 해석하면 Project 타입의 id 프로퍼티를 찾을 수 없다고 합니다.  
+해당 메소드의 쿼리를 생성하는데 실패하면서 `No property id found for type Project! Traversed path: App.project.`가 발생했습니다. 로그 그대로 해석하면 Project 타입의 id 프로퍼티를 찾을 수 없다고 합니다.  
 
-위와 관련된 내용을 [Spring Data JPA Doc](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.query-property-expressions)에서 찾을 수 있었습니다. 로그와 같은 에러가 발생한 이유는 Spring-Data-JPA에서 언더스코어(_)가 **프로퍼티을 찾기 위한 탐색 경로를 지정하는 예약어***이기 때문입니다.
+위와 같은 에러가 왜 발생햇는지 검색해보니 관련된 내용을 [Spring Data JPA Doc](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.query-property-expressions)에서 찾을 수 있었습니다. 로그와 같은 에러가 발생한 이유는 Spring-Data-JPA에서 언더스코어(_)가 **프로퍼티을 찾기 위한 탐색 경로를 지정하는 예약어***이기 때문입니다.
 
 ## JPA의 예약어 언더스코어(_)
 
@@ -152,8 +152,9 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 
 ### 결론
 
-언더스코어는 이미 `Spring Data JPA`의 **탐색 경로를 설정하는 예약어**이기 때문에 Property Expressions에 사용하면 안됩니다.  
-스네이크 표기법을 사용하기보단 자바의 네이밍 컨벤션인 카멜 표기법을 사용하는 것을 추천합니다.
+언더스코어는 이미 `Spring Data JPA`의 **탐색 경로를 설정하는 예약어**이기 때문에 Property Expressions에 사용하면 안됩니다. 스네이크 표기법을 사용하기보단 자바의 네이밍 컨벤션인 카멜 표기법을 사용하는 것을 추천합니다.  
+객체 그래프를 탐색하는 조건의 경우 `_`를 사용하면 객체 그래프 탐색 경로를 지정할 수 있습니다. (사용하지 않아도 탐색 경로 설정 로직에 따라 객체 그래프를 탐색하겠지만, 모호한 경우가 있을 수 있으니 명시적으로 탐색 경로를 지정해주는게 좋다고 생각합니다.)
+
 
 ----------------------------------
 
