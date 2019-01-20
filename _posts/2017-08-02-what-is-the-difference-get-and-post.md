@@ -1,7 +1,7 @@
 ---
 layout: post
 title: GET과 POST의 차이
-date: 2017-08-02 02:11 +0900
+date: 2017-08-02 02:11
 updated: 2019-01-20 21:44:01 +0900
 categories:
 - Web
