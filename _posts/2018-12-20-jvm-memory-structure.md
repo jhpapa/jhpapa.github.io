@@ -12,13 +12,13 @@ tags:
 
 # JVM 메모리 구조 (Run-Time Data Areas)
 
-JVM의 메모리는 크게 쓰레드별로 생성되는 데이터 영역과 전체 쓰레드가 공유하는 데이터 영역으로 나뉘며, Run-Time Data Areas라고 부릅니다.
+JVM의 메모리는 크게 **쓰레드별로 생성되는 데이터 영역**과 **전체 쓰레드가 공유하는 데이터 영역**으로 나뉘며, `Run-Time Data Areas` 라고 부릅니다.
 
 ![JVM 메모리 구조](/assets/images/post/jvm-memory-structure.jpg)
 
 ## 쓰레드별 데이터 영역
 
-쓰레드의 데이터 영역은 쓰레드가 생성될 때, 생성되며, 쓰레드가 종료되면 해제됩니다.
+쓰레드의 데이터 영역은 쓰레드가 생성될 때 생성되며, 쓰레드가 종료되면 해제됩니다.
 
 ### PC(Program Counter) Register
 
@@ -65,3 +65,4 @@ Method Area는 JVM 벤더마다 다르지만, HotSpot에선 Permanent Generation
 * [StackOverflow - Where are static methods and static variables stored in Java?](https://stackoverflow.com/questions/8387989/where-are-static-methods-and-static-variables-stored-in-java)
 * [StackOverflow - What is the purpose of the Java Constant Pool?](https://stackoverflow.com/questions/10209952/what-is-the-purpose-of-the-java-constant-pool)
 * [JEP 122: Remove the Permanent Generation](http://openjdk.java.net/jeps/122)
+* [JVM Internal](https://d2.naver.com/helloworld/1230)
