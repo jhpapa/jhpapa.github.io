@@ -44,7 +44,7 @@ Oracle에서는 길이 제한을 해제하고 싶은 사용자를 위해 JCE Unl
 * [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
 
 다운 받은 파일안의 `local_policy.jar`, `US_export_policy.jar` 파일을 `<JAVA_HOME>/jre/lib/security/` 폴더로 옮겨 기존 정책을 덮어씌웁니다. 그러면 JCE로 사용 가능한 모든 암호화의 키 길이 제한이 해제됩니다. <br/>
-추가로 [8u151 Release Notes](http://www.oracle.com/technetwork/java/javase/8u151-relnotes-3850493.html)에서는 해당 버전부터 별도의 다운로드없이 Unlimited Strength 정책을 설정할 수 있게 추가 번들이 같이 제공됩니다.
+추가로 [8u151 Release Notes](http://www.oracle.com/technetwork/java/javase/8u151-relnotes-3850493.html)에서는 해당 버전부터 별도의 다운로드없이 Unlimited Strength 정책을 설정할 수 있게 추가 번들이 같이 제공됩니다.  
 해당 버전에서 정책 파일은 `<JAVA_HOME>/jre/lib/security/policy` 경로에 `limited`와 `unlimited` 폴더로 구성되며, unlimited 설정은 `<JAVA_HOME>/jre/lib/security/java.security` 파일을 열어 아래와 같은 부분을 찾아 주석 처리(`#`)를 지워주면 제한 해제된 정책을 사용할 수 있습니다.
 
 ``` Java
