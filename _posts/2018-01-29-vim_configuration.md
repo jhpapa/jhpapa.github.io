@@ -2,6 +2,7 @@
 layout: post
 title: Vim 설정하기
 date: '2018-01-29 00:41'
+updated: 2020-01-20 23:41:03 +0900
 categories:
   - Editor
 tags:
@@ -100,48 +101,43 @@ OS별로 아래와 같이 설정하면 vim에서 복사한 내용을 다른 곳�
 
 ## 플러그인
 
-vim에서 플러그인을 사용하려면 [Vundle](https://github.com/VundleVim/Vundle.vim)이라는 플러그인 매니저가 필요합니다.  
+vim에서 플러그인을 사용하려면 [vim-plug](https://github.com/junegunn/vim-plug)이라는 플러그인 매니저가 필요합니다.  
 설치 방법 및 유용한 플러그인까지 알아보겠습니다.
 
-### Vundle 설치
+### vim-plug 설치
 
-Vundle의 github을 clone받으면 필요한 파일을 받을 수 있습니다.  
-아래 명령어를 터미널창에서 입력해줍니다.
+터미널에서 아래의 명령어를 입력해 다운로드 받습니다.
 
-> git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-`~/.vim/bundle` 폴더 안에 플러그인 매니저 폴더(Vundle.vim)가 생기고 필요한 파일이 다운로드 됩니다. 앞으로 플러그인을 추가하게 되면 bundle폴더에 파일이 추가됩니다.
+``` shell
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
 
 ### vimrc 설정
 
-이제 필요한 파일은 준비가 되었으니 플러그인 매니저 사용을 위한 옵션을 설정해줍니다.
+`.vimrc` 에 플러그인 매니저 설정 및 사용할 플러그인을 추가해야 합니다.
 
 ``` vim
-set nocompatible " Vim으로 사용한다는 뜻
-filetype off " 필수 옵션
+" 플러그인 설정
+" - ~/.vim/plugged 폴더에 플러그인이 설치됩니다.
+call plug#begin('~/.vim/plugged')
 
-set rtp+=~/.vim/bundle/Vundle.vim " runtimepath 설정
-call vundle#begin()
 " 필요한 플러그인 추가
-" Plugin 'github repository'
-Plugin 'VundleVim/Vundle.vim'
-call vundle#end()
+" Plug 'github repository'
+Plug 'scrooloose/nerdtree'
 
-filetype plugin indent on
+call plug#end()
 ```
-  
-옵션 중 `filetype off`한 뒤, 다시 켜는 이유는 vim은 runtimepath의 플러그인을 캐싱하는데 Vundle은 runtimepath를 변경하기 때문에 꺼두었다가 작업이 끝나면 켜지도록 해야합니다.
 
 ### 플러그인 설치
 
 설정이 끝나면 설정파일 저장 후, vim을 다시 켜거나 `:source %`를 입력해 설정 파일을 다시 로드해줍니다.  
-이제 명령모드에서 `:PluginInstall`을 입력하면 설정 파일에 추가한 플러그인을 설치합니다.
-좌측 하단에 Done! 이라는 문구가 표시되면 설치가 완료됩니다.
+명령모드에서 `:PlugInstall` 을 입력하면 설정 파일에 추가한 플러그인을 설치합니다.
 ![플러그인 설치 완료](/assets/images/post/vim_plugin_install_success.png)
 
 ### 플러그인 삭제
 
-플러그인을 삭제하고 싶다면 **설정 파일에서 추가한 플러그인의 git repository를 삭제**하고 설정 파일을 다시 로드한 다음 `:PluginClean`을 입력해주면
+플러그인을 삭제하고 싶다면 **설정 파일에서 추가한 플러그인의 git repository를 삭제**하고 설정 파일을 다시 로드한 다음 `:PlugClean`을 입력해주면
 설치할 때와 동일하게 좌측에 새창이 뜨면서 삭제할 플러그인이 보이고 삭제 여부를 물은 다음에 삭제 과정이 진행됩니다.
   
 
@@ -151,17 +147,13 @@ filetype plugin indent on
 
 ### The NERD Tree
 [The NERD Tree](https://github.com/scrooloose/nerdtree)는 vim내에서 Tree 형태로 폴더 구조를 보여주는 플러그인입니다.  
-먼저 `vimrc`에 **NERD Tree의 git repository를 추가**합니다.
+먼저 `.vimrc` 에 **NERD Tree의 git repository를 추가**해 플러그인을 설치해줍니다.
 
 ``` vim
-call vundle#begin()
-" 필요한 플러그인 추가
-" Plugin 'github repository'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree' " NERD Tree 추가
-call vundle#end()
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree' " NERD Tree 추가
+call plug#end()
 ```
-설정 파일을 다시 로드 후, vim의 명령모드에서 `:PluginInstall`을 입력하면 설치가 완료됩니다.   
 NERD Tree 실행은 명령모드에서 `:NERDTree`라고 입력하면 좌측에 Tree view가 표시됩니다.
 
 매번 명령어를 입력하기 귀찮기 때문에 단축키 설정을 해줍니다.   
@@ -230,87 +222,11 @@ let g:mkdp_command_for_global = 0
 ```
 
 ## My vimrc
-아래는 제가 사용 중인 설정입니다.
 
-``` vim
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
-Plugin 'ctrlpvim/ctrlp.vim'
-"Plugin 'Lokaltog/vim-powerline'
-call vundle#end()
-
-filetype plugin indent on
-
-set number " 라인 넘버 표시. (= nu)
-set showcmd " 사용자가 입력한 명령어 표시
-set showmatch " 현재 선택된 괄호의 쌍을 표시
-"set relativenumber " 커서를 기준으로 라인 넘버 표시. 커서 위치에 따라 바뀜. (= rnu)
-"set cursorline " 커서가 있는 라인을 강조 표시. (= cul)
-set ruler " 커서 위치 표시. (= ru)
-set clipboard=unnamed " 복사시 추가로 클립보드에 저장
-set mouse=a " 마우스로 스크롤 및 리사이즈 가능. [n : Normal mode / v : Visual mode / i : Insert mode / a : All modes]
-set laststatus=2 " 상태바 표시. (= ls) [0: 상태바 미표시 / 1: 2개 이상의 윈도우에서 표시 / 2: 항상 표시]
-set statusline=%F\ %y%m%r\ %=Line:\ %l/%L\ [%p%%]\ Col:%c\ Buf:%n " 상태바 커스터마이징 %<item>으로 사용하며, \는 구분자로 공백을 넣을 경우는 구분자를 넣어줘야함.
-hi statusline ctermfg=White ctermbg=4 cterm=none "활성화된 상태바 배경색 및 폰트색 설정
-hi statuslineNC ctermfg=White ctermbg=8 cterm=none " 윈도우가 2개 이상인 경우 비활성화된 윈도우의 배경색 및 폰트색 설정
-
-" Searching options
-set hlsearch " 검색된 결과 강조 표시. (= hls) <-> nohlsearch (= nohls)
-set ignorecase " 검색시 대소문자를 구분하지 않음. (= ic) <-> noignorecase (= noic)
-set incsearch " 검색어를 입력할 때마다 일치하는 문자열을 강조해서 표시. (= is) <-> noincsearch (= nois)
-set smartcase " 검색어에 대문자가 있다면 정확히 일치하는 문자열을 찾음. ignorecase 옵션이 on이어도 됨. (= scs) <-> nosmartcase (= noscs)
-syntax on " 형식별 구문 강조 표시
-
-" Indentation options
-set autoindent " 새로운 라인이 추가될 때, 이전 라인의 들여쓰기에 자동으로 맞춤. (= ai)
-set expandtab  " Tab을 Space로 변경. (= et)
-set tabstop=4 " 탭으로 들여쓰기시 사용할 스페이스바 개수. (= ts)
-set shiftwidth=4 " <<, >> 으로 들여쓰기시 사용할 스페이스바 개수. (= sw)
-set softtabstop=4 " 스페이스바 n개를 하나의 탭으로 처리. (= sts)
-" ex) 스페이스바 4개가 연속으로 있다면 백스페이스로 스페이스바를 지우면 스페이스바 4개를 하나의 탭으로 인식해 삭제.
-
-" Input options
-set backspace=eol,start,indent " 라인의 시작과 끝의 들여쓰기를 백스페이스로 지움.
-set history=1000 " 편집한 내용 저장 개수 (되돌리기 제한 설정)
-
-" Key settings
-let mapleader="\\"
-
-" Plugin configuration
-"" The NERD Tree
-map <Leader>nt <ESC>:NERDTree<CR>
-
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-
-"" Ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip " MacOSX/Linux
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ }
-
-"" Vim-airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-```
+제가 사용 중인 설정은 [여기](https://github.com/hongsii/dotfiles/blob/master/vim/vimrc.symlink)에서 확인할 수 있습니다.
 
 --------------------------------
 
 # 참고
 * [Top 50 Vim Configuration Options](https://www.shortcutfoo.com/blog/top-50-vim-configuration-options/)
+* [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
