@@ -12,7 +12,7 @@ tags:
 
 # Hammerspoon
 
-Hammerspoon은 스크립팅 언어인 [Lua](https://ko.wikipedia.org/wiki/%EB%A3%A8%EC%95%84_(%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EC%96%B8%EC%96%B4) 를 사용해 Mac OS에서 자동화할 수 있는 툴입니다.  
+Hammerspoon은 스크립팅 언어인 [Lua](https://www.lua.org/) 를 사용해 Mac OS에서 자동화할 수 있는 툴입니다.  
 이 툴을 사용하면 OS X API를 몰라도 Lua를 사용해 애플리케이션부터 화면, 파일, 오디오, 네트워크, 마우스 / 키보드 이벤트 등등을 다룰 수 있습니다.
 
 ## 설치
