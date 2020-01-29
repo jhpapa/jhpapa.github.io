@@ -1,24 +1,31 @@
 #! /bin/sh
 
 # define global variable
-BLOG_PATH=~/blog/hongsii.github.io
+BLOG_PATH=$(pwd -P)
 TEMP_POST_PATH=$BLOG_PATH/_drafts
+mkdir -p $TEMP_POST_PATH
 
-read -p "타이틀 : " title
-post=$TEMP_POST_PATH/$title.md
+echo "파일명"
+read file_name 
+post=$TEMP_POST_PATH/$file_name.md
+echo $post
 if [ -f $post ]; then
     echo "동일한 이름의 포스트가 존재합니다."
     ls $TEMP_POST_PATH
     exit 1
 fi
 
-read -p "설명 : " description
+echo "제목"
+read title
+echo "설명"
+read  description
+echo "날짜(YYYY-MM-DD HH24:MI)"
+read  date
+echo "카테고리"
+read  category
+echo "태그(공백으로 구분)"
+read  input_tags
 
-read -p "날짜(YYYY-MM-DD HH24:MI) : " date
-
-read -p "카테고리 : " category
-
-read -p "태그(공백으로 구분) : " input_tags
 IFS=' ' read -a tags <<< "$input_tags"
 formatted_tags=""
 index=0
@@ -44,4 +51,4 @@ $formatted_tags
 ---
 EOT
 
-vim $post
+# vim $post
