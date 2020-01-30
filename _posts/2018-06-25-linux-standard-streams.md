@@ -66,7 +66,7 @@ tags:
 기본적으로 출력 스트림은 터미널이랑 연결되어있기 때문에 터미널에 내용이 표시되지만, `>` 리다이렉션 기호를 통해 표준 출력 스트림의 방향을 변경해줍니다.
 `cat test.txt > stdout.txt`라고 입력하면 cat test.txt의 출력 스트림이 stdout.txt 파일과 연결되어서 출력 되는 내용이 텍스트 파일에 쓰여지게 됩니다.
 
-![stdout test]({{ site.url }}/{{ site.post_images }}/2018/06/stdout_test.png){:width="50%"  height="30%"}
+![stdout test]({{post_images}}/stdout_test.png){:width="50%"  height="30%"}
 
 
 ### 표준 출력 (추가)
@@ -74,7 +74,7 @@ tags:
 `>>`을 사용하게 되면 기존의 내용을 지우지 않고 뒤에 추가하는 방식으로 동작합니다. `cat test.txt >> stdout_add.txt`를 처음 실행하면 출력 스트림을 통해 텍스트 파일에 내용이 쓰여집니다. 동일한 명령어를 한번 더 실행하게 되면 이전 내용을 지우지 않고 마지막에 추가되어 동일한 내용이 두 번 나오는 것을 확인할 수 있습니다.
 
 
-![stdout add test]({{ site.url }}/{{ site.post_images }}/2018/06/stdout_add_test.png){:width="50%"  height="30%"}
+![stdout add test]({{post_images}}/stdout_add_test.png){:width="50%"  height="30%"}
 
 
 ## 리다이렉션과 파일 디스크립터

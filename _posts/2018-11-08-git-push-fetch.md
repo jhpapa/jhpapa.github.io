@@ -53,11 +53,11 @@ git update-ref refs/heads/branch1 4c009fbb5847d4b4d3a32984a1004259c15c8ada
 
 master 밖에 없었지만 명령어가 실행되면 branch1 이라는 refs가 생성됩니다.
 
-![manual-branch]({{ site.url }}/{{ site.post_images }}/{{ page.date | date: '%Y/%m' }}/git-push1.png)
+![manual-branch](/images/git-push1.png)
 
 그리고 `git branch -a` 명령어로 조회해보면 branch1이 생성된 것을 확인할 수 있습니다.
 
-![2manual-branch]({{ site.url }}/{{ site.post_images }}/{{ page.date | date: '%Y/%m' }}/git-push2.png)
+![2manual-branch](/images/git-push2.png)
 
 ## Refspec
 
