@@ -709,7 +709,7 @@ vendors:
 css: assets/css
 js: assets/js
 images: assets/images
-post_images: assets/images/post
+post_images: /assets/images/post
 
 # Theme version
 version: 5.1.1
