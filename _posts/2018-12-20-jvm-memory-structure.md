@@ -14,7 +14,7 @@ tags:
 
 JVM의 메모리는 크게 **쓰레드별로 생성되는 데이터 영역**과 **전체 쓰레드가 공유하는 데이터 영역**으로 나뉘며, `Run-Time Data Areas` 라고 부릅니다.
 
-![JVM 메모리 구조](/assets/images/post/jvm-memory-structure.jpg)
+![JVM 메모리 구조](/images/jvm-memory-structure.jpg)
 
 ## 쓰레드별 데이터 영역
 

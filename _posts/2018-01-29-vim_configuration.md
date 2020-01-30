@@ -133,7 +133,7 @@ call plug#end()
 
 설정이 끝나면 설정파일 저장 후, vim을 다시 켜거나 `:source %`를 입력해 설정 파일을 다시 로드해줍니다.  
 명령모드에서 `:PlugInstall` 을 입력하면 설정 파일에 추가한 플러그인을 설치합니다.
-![플러그인 설치 완료](/assets/images/post/vim_plugin_install_success.png)
+![플러그인 설치 완료](/images/vim_plugin_install_success.png)
 
 ### 플러그인 삭제
 
