@@ -51,4 +51,4 @@ $formatted_tags
 ---
 EOT
 
-# vim $post
+vim $post
