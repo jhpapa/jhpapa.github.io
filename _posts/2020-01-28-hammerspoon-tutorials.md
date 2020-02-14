@@ -87,7 +87,7 @@ Hammerspoon은 스크립팅 언어인 [Lua](https://www.lua.org/) 를 사용해 
 `⇧ + ⌥ + ⌃ + c` 를 누르면 크롬이 실행됩니다!  
 
 저는 여기에 단축키를 누르면 응용 프로그램이 열리고, 다시 누르면 숨겨지도록 내용을 추가해서 사용 중입니다.  
-자세한 코드는 [여기서](https://github.com/hongsii/dotfiles/blob/master/hammerspoon/hammerspoon.symlink/modules/apps.luahttps://github.com/hongsii/dotfiles/blob/master/hammerspoon/hammerspoon.symlink/modules/apps.lua) 확인할 수 있습니다.
+자세한 코드는 [여기서](https://github.com/hongsii/dotfiles/blob/master/hammerspoon/hammerspoon.symlink/modules/app-shortcut.lua) 확인할 수 있습니다.
 
 ## 모듈
 
