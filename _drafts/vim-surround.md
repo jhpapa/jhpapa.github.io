@@ -11,7 +11,7 @@ tags:
 
 # vim-surround
 
-Vim에서 [vim-surround](https://github.com/tpope/vim-surround) 플러그인을 사용하면 괄호, 따옴표, HTML 태그 등을 손쉽게 감쌀 수 있습니다.
+Vim에서 [vim-surround](https://github.com/tpope/vim-surround) 플러그인을 사용하면 손쉽게 괄호, 따옴표, HTML 태그 등으로 감쌀 수 있습니다.
 
 ## 설치
 
@@ -31,4 +31,13 @@ Plugin 'tpope/vim-surround'
 
 ## 사용법
 
+### 감싸기
 
+커서 위치의 문자를 감싸려면 `ys` 명령어를 사용합니다.
+
+``` text
+ys<motion|text-object><additional-character>
+```
+
+* motion : w, b, h, j, k 과 같은 이동키
+* text-object : aw, iw, as, is와 같은 단축키
