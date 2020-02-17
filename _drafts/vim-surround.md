@@ -31,13 +31,39 @@ Plugin 'tpope/vim-surround'
 
 ## 사용법
 
-### 감싸기
+### 감싸기 
 
-커서 위치의 문자를 감싸려면 `ys` 명령어를 사용합니다.
+`ys` 명령어를 사용하면 입력한 문자로 감쌀 수 있습니다.
 
 ``` text
-ys<motion|text-object><additional-character>
+ys<motion|text-object><감쌀 문자>
 ```
 
-* motion : w, b, h, j, k 과 같은 이동키
-* text-object : aw, iw, as, is와 같은 단축키
+* [motion](http://vimdoc.sourceforge.net/htmldoc/motion.html) : w, b, h, j, k와 같이 커서를 움직이는 행동
+* [text-object](http://vimdoc.sourceforge.net/htmldoc/motion.html#object-motions) : aw, iw, as, is와 같이 사전에 정의해둔 컨텍스트
+
+
+``` text
+# World 위에 커서를 위치한 후, ysiw) 입력
+Hello, (World)
+
+# 감쌀 때 양옆에 공백을 추가하고 싶다면 ysiw( 입력
+Hello, ( World )
+
+```
+
+### 변경
+
+`cs` 명령어를 사용하면 감싸고 있는 문자를 입력한 문자로 바꿀 수 있습니다.
+
+``` text
+cs<감싼 문자><바꿀 문자>
+```
+
+커서가 있는 위치를 기준으로 감싼 문자를 찾습니다.
+
+``` text
+# 소괄호 () 에 커서를 두고 cs)] 를 입력
+Hello, (World)
+-> Hello, [World]
+```
