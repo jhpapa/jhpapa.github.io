@@ -3,7 +3,7 @@
 clear
 
 # define global variable
-BLOG_PATH=~/blog/hongsii.github.io
+BLOG_PATH=$(pwd -P)
 TEMP_POST_PATH=$BLOG_PATH/_drafts
 POST_PATH=$BLOG_PATH/_posts
 
