@@ -1,30 +1,33 @@
-#! /bin/sh
+#! /bin/bash
 
-# define global variable
+set -e
+clear
+
 BLOG_PATH=$(pwd -P)
-TEMP_POST_PATH=$BLOG_PATH/_drafts
-mkdir -p $TEMP_POST_PATH
+DRAFT_DIR=$BLOG_PATH/_drafts
 
-echo "파일명"
-read file_name 
-post=$TEMP_POST_PATH/$file_name.md
-echo $post
+print_header() {
+    local width=60
+    local title="P U B L I S H E R" 
+
+    printf '=%.0s' $(seq 1 $width); echo ''
+    printf "%*s\n" $(((${#title}+$width)/2)) "$title"
+    printf '=%.0s' $(seq 1 $width); echo ''
+} >&2
+
+print_header
+mkdir -p $DRAFT_DIR
+read -p $'파일명 : ' file_name 
+post=$DRAFT_DIR/$file_name.md
 if [ -f $post ]; then
     echo "동일한 이름의 포스트가 존재합니다."
-    ls $TEMP_POST_PATH
     exit 1
 fi
 
-echo "제목"
-read title
-echo "설명"
-read  description
-echo "날짜(YYYY-MM-DD HH24:MI)"
-read  date
-echo "카테고리"
-read  category
-echo "태그(공백으로 구분)"
-read  input_tags
+read -p $'제목 : ' title
+read -p $'설명 : ' description
+read -p $'카테고리 : ' category
+read -p $'태그(공백으로 구분) : ' input_tags
 
 IFS=' ' read -a tags <<< "$input_tags"
 formatted_tags=""
@@ -43,7 +46,7 @@ cat <<EOT >> $post
 layout: 'post'
 title: '$title'
 description: '$description'
-date: '$date'
+date: '$(date +"%Y-%m-%d %H:%M:%S")'
 categories:
   - $category
 tags:
