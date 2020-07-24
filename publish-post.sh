@@ -16,27 +16,27 @@ print_header() {
     printf '=%.0s' $(seq 1 $width); echo ''
 } >&2
 overwrite() { echo -e "\r\033[1A\033[0K$@"; }
-publish_post() {
-    local select_text="발행할 포스트 : "
-    echo $select_text >&2
-
+select_post() {
     local title=$(ls $DRAFT_DIR | fzf --height 20% --layout=reverse --border)
     if [ -z $title ]; then
-        echo "please select post for publishing" >&2
+        echo "Please select post for publishing" >&2
         exit 1
     fi
-    overwrite $select_text $title >&2
     echo $title
 }
-input_date() {
-    local output_text=$1
-    local value=$2
-    read -e -p "$1 [$value] : " input >&2
-    value=${input:-$value}
-    overwrite "$output_text\t: $value" >&2
-    echo $value
+publish_post() {
+    title=$1
+    post="$(date +"%Y-%m-%d")-$title"
+    echo ''
+    if [ ! -f "$POST_DIR/$post" ]; then
+        mkdir -p $POST_DIR && cp $DRAFT_DIR/$title "$_/$post"
+        echo "Success publishing !"
+        echo -e "\t$post\n"
+    else 
+        echo "Already published !"
+    fi 
+    echo ''
 }
-
 
 # Main
 print_header
@@ -47,13 +47,17 @@ elif [ ! -d $POST_DIR ]; then
     echo "Not exists directory '_posts'!!"
     exit 1
 fi
-title=$(publish_post)
-year=$(input_date "연도" $(date +"%Y"))
-month=$(input_date "월" $(date +"%m"))
-day=$(input_date "일" $(date +"%d"))
+file=$(select_post)
 
-publish_post="$year-$month-$day-$title"
-#mkdir -p $POST_DIR && cp $DRAFT_DIR/$title "$_/$publish_post"
 
-echo -e "\nSuccess publishing !\n"
-echo -e "\t$publish_post\n"
+
+while true; do
+    read -p "Do you want to publish '$file' ? " yn
+    case $yn in
+        [Yy] ) publish_post "$file"; break;;
+        [Nn] ) echo -e '\nCancel publishing !\n'; break;;
+        * ) echo "You should enter yes or no !";;
+    esac
+done
+
+
