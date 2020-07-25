@@ -6,6 +6,13 @@ clear
 BLOG_PATH=$(pwd -P)
 DRAFT_DIR=$BLOG_PATH/_drafts
 POST_DIR=$BLOG_PATH/_posts
+if [ ! -d $DRAFT_DIR ]; then
+    echo "Not exists directory '_drafts'!!"
+    exit 1
+elif [ ! -d $POST_DIR ]; then
+    echo "Not exists directory '_posts'!!"
+    exit 1
+fi
 
 print_header() {
     local width=60
@@ -32,24 +39,21 @@ publish_post() {
         mkdir -p $POST_DIR && cp $DRAFT_DIR/$title "$_/$post"
         echo "Success publishing !"
         echo -e "\t$post\n"
+
+        read -p "Do you want to remove published post ? " yn
+        case $yn in
+            [Yy] ) rm $DRAFT_DIR/$title; break;;
+            * ) break;;
+        esac
     else 
         echo "Already published !"
     fi 
     echo ''
 }
 
-# Main
+
 print_header
-if [ ! -d $DRAFT_DIR ]; then
-    echo "Not exists directory '_drafts'!!"
-    exit 1
-elif [ ! -d $POST_DIR ]; then
-    echo "Not exists directory '_posts'!!"
-    exit 1
-fi
 file=$(select_post)
-
-
 
 while true; do
     read -p "Do you want to publish '$file' ? " yn
